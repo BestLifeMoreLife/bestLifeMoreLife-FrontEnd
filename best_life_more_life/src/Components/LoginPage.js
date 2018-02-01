@@ -2,7 +2,7 @@ import React from "react";
 import api from "../services/api";
 import { Link } from "react-router-dom";
 
-class Login extends React.Component {
+class LoginPage extends React.Component {
   state = {
     error: false,
     fields: {
@@ -34,4 +34,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default LoginPage;

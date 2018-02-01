@@ -2,7 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
 const Navbar = props => {
-  const loggedIn = !!props.currentUser.id;
+  const loggedIn = false;
   return (
     <div>
       <Link to="/" className="item">
@@ -12,7 +12,7 @@ const Navbar = props => {
       </Link>
 
       {loggedIn ? (
-        <div className="item">Welcome {this.props.currentUser.username}</div>
+        <div className="item">Welcome </div>
       ) : (
         <Link to="/login" className="item">
           <h2 className="ui header">
