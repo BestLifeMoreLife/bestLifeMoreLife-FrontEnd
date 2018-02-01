@@ -5,11 +5,9 @@ const Navbar = props => {
   const loggedIn = false;
   return (
     <div>
-      <Link to="/" className="item">
-        <h2 className="ui header">
-          <div className="content">Test</div>
-        </h2>
-      </Link>
+      <h2 className="ui header">
+        <div className="content">Best Life More Life</div>
+      </h2>
 
       {loggedIn ? (
         <div className="item">Welcome </div>
