@@ -1,14 +1,52 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions";
+import SignUpQuestion from "./SignUpQuestion";
 
 class SignUpQuizContainer extends React.Component {
+  state = {
+    test: {},
+    questions: [],
+    questionNumber: 0
+  };
   componentDidMount() {
-    this.props.fetchTests();
+    this.fetchTests("signup");
+    this.fetchQuestions(this.state.test.id);
   }
+
+  fetchTests = name => {
+    fetch(`http://localhost:3000/api/v1/tests`)
+      .then(resp => resp.json())
+      .then(resp => {
+        return resp.map(test => {
+          if (test.name === name) {
+            this.setState({
+              test: test
+            });
+          }
+        });
+      });
+  };
+
+  fetchQuestions = id => {
+    fetch(`http://localhost:3000/api/v1/questions`)
+      .then(resp => resp.json())
+      .then(resp => {
+        this.setState({
+          questions: resp
+        });
+      });
+  };
+
   render() {
-    console.log("quiz", this.props);
-    return <h1>Quiz Page</h1>;
+    let num = this.state.questionNumber;
+    let question = this.state.questions.length ? this.state.questions[num] : {};
+    console.log("render", num, this.state.questions, question);
+    return (
+      <div>
+        <SignUpQuestion question={question} />
+      </div>
+    );
   }
 }
 

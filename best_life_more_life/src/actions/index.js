@@ -19,13 +19,3 @@ export function login(spotify_code, history) {
       });
   };
 }
-
-export function fetchTests() {
-  return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/tests`)
-      .then(resp => resp.json())
-      .then(resp => {
-        console.log("in fetch", resp);
-      });
-  };
-}
