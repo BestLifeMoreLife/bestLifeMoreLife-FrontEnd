@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Switch, Route } from "react-router-dom";
 import * as actions from "../actions";
 import SignUpQuestion from "./SignUpQuestion";
 
 class SignUpQuizContainer extends React.Component {
   state = {
     test: {},
-    questions: [],
-    questionNumber: 0
+    questions: []
   };
   componentDidMount() {
     this.fetchTests("signup");
@@ -18,7 +18,7 @@ class SignUpQuizContainer extends React.Component {
     fetch(`http://localhost:3000/api/v1/tests`)
       .then(resp => resp.json())
       .then(resp => {
-        return resp.map(test => {
+        return resp.forEach(test => {
           if (test.name === name) {
             this.setState({
               test: test
@@ -39,13 +39,16 @@ class SignUpQuizContainer extends React.Component {
   };
 
   render() {
-    let num = this.state.questionNumber;
-    let question = this.state.questions.length ? this.state.questions[num] : {};
-    console.log("render", num, this.state.questions, question);
+    let questions = this.state.questions.length ? this.state.questions : {};
     return (
-      <div>
-        <SignUpQuestion question={question} />
-      </div>
+      <Switch>
+        <Route
+          path="/quiz/:id"
+          render={routerProps => {
+            return <SignUpQuestion {...routerProps} questions={questions} />;
+          }}
+        />
+      </Switch>
     );
   }
 }

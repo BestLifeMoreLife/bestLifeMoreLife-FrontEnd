@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import SignUpQuizContainer from "./SignUpQuizContainer";
+import { Link } from "react-router-dom";
 
 class WelcomePage extends React.Component {
   state = {
@@ -17,12 +17,10 @@ class WelcomePage extends React.Component {
     return (
       <div>
         <h1>Welcome</h1>
-        {this.props.user.score ? (
+        {this.props.user.score > 0 ? (
           <h3>Got a score</h3>
-        ) : this.state.clickedQuiz === false ? (
-          <SignUpQuizContainer />
         ) : (
-          <button onClick={this.quizClickHandler}>Take Quiz</button>
+          <Link to="/quiz/0">Get Started</Link>
         )}
       </div>
     );
