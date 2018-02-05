@@ -1,4 +1,4 @@
-import { LOGIN } from "./types";
+import { LOGIN, UPDATE, NEW_JOURNAL } from "./types";
 
 export function login(spotify_code, history) {
   return dispatch => {
@@ -18,8 +18,7 @@ export function login(spotify_code, history) {
       });
   };
 }
-export function updateUser({ score, user }) {
-  console.log("patch", score, user);
+export function updateUser(props, history) {
   return dispatch => {
     return fetch(`http://localhost:3000/api/v1/users/new`, {
       method: "PATCH",
@@ -27,9 +26,46 @@ export function updateUser({ score, user }) {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
-      body: JSON.stringify({ score, user })
+      body: JSON.stringify({ score: props.score, user: props.user })
     })
       .then(res => res.json())
-      .then(console.log);
+      .then(user => {
+        dispatch({ type: UPDATE, user });
+        history.push("/intro");
+      });
+  };
+}
+export function newJournal(user_id, history) {
+  return dispatch => {
+    return fetch(`http://localhost:3000/api/v1/journals/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({ user_id })
+    })
+      .then(res => res.json())
+      .then(journal => {
+        dispatch({ type: NEW_JOURNAL, journal });
+        history.push("/journal");
+      });
+  };
+}
+export function fetchJournal(user_id, history) {
+  return dispatch => {
+    return fetch(`http://localhost:3000/api/v1/journals/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({ user_id })
+    })
+      .then(res => res.json())
+      .then(journal => {
+        dispatch({ type: NEW_JOURNAL, journal });
+        history.push("/journal");
+      });
   };
 }

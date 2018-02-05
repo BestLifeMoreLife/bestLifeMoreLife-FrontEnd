@@ -1,17 +1,28 @@
 import { combineReducers } from "redux";
-import { LOGIN } from "./actions/types";
+import { LOGIN, UPDATE, NEW_JOURNAL } from "./actions/types";
 
 const userReducer = (state = {}, action) => {
   switch (action.type) {
     case LOGIN:
       return action.user;
+    case UPDATE:
+      return action.user;
+    default:
+      return state;
+  }
+};
+const journalReducer = (state = {}, action) => {
+  switch (action.type) {
+    case NEW_JOURNAL:
+      return action.journal;
     default:
       return state;
   }
 };
 
 const rootReducer = combineReducers({
-  currentUser: userReducer
+  currentUser: userReducer,
+  journal: journalReducer
 });
 
 export default rootReducer;

@@ -6,14 +6,8 @@ import WelcomePage from "./WelcomePage";
 import SignUpQuizContainer from "./SignUpQuizContainer";
 import LoginPage from "./LoginPage";
 import UserAuth from "./UserAuth";
-
-const button = () => {
-  return (
-    <a href="http://localhost:3000/api/v1/login">
-      <button>Log In</button>
-    </a>
-  );
-};
+import IntroPage from "./IntroPage";
+import Journal from "./Journal";
 
 class App extends Component {
   render() {
@@ -25,6 +19,8 @@ class App extends Component {
           <Route path="/auth" component={UserAuth} />
           <Route path="/profile" component={WelcomePage} />
           <Route path="/quiz" component={SignUpQuizContainer} />
+          <Route path="/intro" component={IntroPage} />
+          <Route path="/journal" component={Journal} />
         </Switch>
       </div>
     );

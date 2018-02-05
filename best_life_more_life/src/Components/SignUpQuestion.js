@@ -36,7 +36,7 @@ class SignUpQuestion extends React.Component {
 
   completeHandler = e => {
     e.preventDefault();
-    this.props.updateUser(this.state);
+    this.props.updateUser(this.state, this.props.history);
   };
 
   render() {
