@@ -9,13 +9,6 @@ class Journal extends React.Component {
     entries: [],
     newEntryClicked: false
   };
-  componentDidMount() {
-    // this.fetchEntries(this.props.journal.id);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // this.fetchEntries(this.props.journal.id);
-  }
 
   createEntry = entry => {
     fetch(`http://localhost:3000/api/v1/entries/new`, {
@@ -56,10 +49,10 @@ class Journal extends React.Component {
     });
   };
   render() {
+    console.log(this.props.journal);
     let entries = this.state.entries.length
       ? this.state.entries.map(entry => <h3>{entry.content}</h3>)
       : null;
-    console.log(entries);
     return (
       <div>
         <h1>Your Journal</h1>

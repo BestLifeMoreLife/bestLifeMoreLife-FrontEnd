@@ -40,12 +40,13 @@ class SignUpQuestion extends React.Component {
   };
 
   render() {
-    console.log(this.state);
+    console.log("questions render", this.state);
     let questionId = this.props.match.url.split("/quiz/")[1];
     let nextId = +questionId + 1;
     let prevId = questionId - 1;
-    let question =
-      this.props.questions.length > 0 ? this.props.questions[questionId] : null;
+    let question = this.props.questions
+      ? this.props.questions[questionId]
+      : null;
     let questionContent = question ? question.content : null;
     let answers = question ? question.answers : null;
     let answersList;
@@ -87,7 +88,7 @@ class SignUpQuestion extends React.Component {
       <div>
         {question ? (
           <form>
-            {questionContent ? questionContent : null}
+            {questionContent}
             {answersList}
             <Link to={`/quiz/${nextId}`}>
               <button type="submit">Submit</button>

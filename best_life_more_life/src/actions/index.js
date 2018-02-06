@@ -1,4 +1,4 @@
-import { LOGIN, UPDATE, NEW_JOURNAL } from "./types";
+import { LOGIN, UPDATE, NEW_JOURNAL, GET_JOURNAL } from "./types";
 
 export function login(spotify_code, history) {
   return dispatch => {
@@ -53,19 +53,17 @@ export function newJournal(user_id, history) {
   };
 }
 export function fetchJournal(user_id, history) {
+  console.log("fetch", user_id);
   return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/journals/new`, {
-      method: "POST",
+    return fetch(`http://localhost:3000/api/v1/journals/`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
-      },
-      body: JSON.stringify({ user_id })
+      }
     })
       .then(res => res.json())
       .then(journal => {
-        dispatch({ type: NEW_JOURNAL, journal });
-        history.push("/journal");
+        dispatch({ type: GET_JOURNAL, journal: journal[0] });
       });
   };
 }

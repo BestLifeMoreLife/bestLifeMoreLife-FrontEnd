@@ -6,15 +6,13 @@ import SignUpQuestion from "./SignUpQuestion";
 
 class SignUpQuizContainer extends React.Component {
   state = {
-    test: {},
-    questions: []
+    test: {}
   };
   componentDidMount() {
-    this.fetchTests("signup");
-    this.fetchQuestions(this.state.test.id);
+    this.fetchTest("Sign Up Quiz");
   }
 
-  fetchTests = name => {
+  fetchTest = name => {
     fetch(`http://localhost:3000/api/v1/tests`)
       .then(resp => resp.json())
       .then(resp => {
@@ -28,18 +26,9 @@ class SignUpQuizContainer extends React.Component {
       });
   };
 
-  fetchQuestions = id => {
-    fetch(`http://localhost:3000/api/v1/questions`)
-      .then(resp => resp.json())
-      .then(resp => {
-        this.setState({
-          questions: resp
-        });
-      });
-  };
-
   render() {
-    let questions = this.state.questions.length ? this.state.questions : {};
+    let questions = this.state.test.questions;
+    console.log("render in sign up", this.state.test, questions);
     return (
       <Switch>
         <Route

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import HomePage from "./HomePage";
 
 class WelcomePage extends React.Component {
   state = {
@@ -18,7 +19,7 @@ class WelcomePage extends React.Component {
       <div>
         <h1>Welcome</h1>
         {this.props.user.score > 0 ? (
-          <h3>Got a score</h3>
+          <HomePage />
         ) : (
           <Link to="/quiz/0">Get Started</Link>
         )}

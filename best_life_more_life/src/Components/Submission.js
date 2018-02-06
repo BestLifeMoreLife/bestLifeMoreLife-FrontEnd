@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import Journal from "./Journal";
 
 class Submission extends React.Component {
   state = {
