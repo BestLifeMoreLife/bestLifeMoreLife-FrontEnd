@@ -2,68 +2,59 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import Submission from "./Submission";
+import EditForm from "./EditForm";
 import * as actions from "../actions";
 
 class Journal extends React.Component {
   state = {
-    entries: [],
-    newEntryClicked: false
+    newEntryClicked: false,
+    entryClicked: []
   };
 
-  createEntry = entry => {
-    fetch(`http://localhost:3000/api/v1/entries/new`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        content: entry.content,
-        public: entry.public,
-        journal_id: entry.journal_id
-      })
-    })
-      .then(resp => resp.json())
-      .then(entry =>
-        this.setState({
-          entries: [...this.state.entries, entry],
-          newEntryClicked: false
-        })
-      );
+  componentDidMount() {
+    this.props.fetchEntries(this.props.journal_id);
+    this.setState({
+      newEntryClicked: false
+    });
+  }
+
+  entryClickHandler = e => {
+    this.setState({
+      entryClicked: [parseInt(e.target.id, 10)]
+    });
   };
 
-  fetchEntries = id => {
-    fetch(`http://localhost:3000/api/v1/journals/${id}`)
-      .then(resp => resp.json())
-      .then(journal => {
-        this.setState({
-          entries: journal.entries.reverse(),
-          newEntryClicked: false
-        });
-      });
-  };
-
-  newEntryHandler = () => {
+  newEntryButtonHandler = () => {
     this.setState({
       newEntryClicked: true
     });
   };
+
   render() {
-    console.log(this.props.journal);
-    let entries = this.state.entries.length
-      ? this.state.entries.map(entry => <h3>{entry.content}</h3>)
+    let entries = this.props.entries.length
+      ? this.props.entries.map(entry => {
+          let preview = entry.content.substr(0, 15);
+          return (
+            <h3 id={entry.id} key={entry.id} onClick={this.entryClickHandler}>
+              {preview}
+            </h3>
+          );
+        })
+      : null;
+    let entry = this.state.entryClicked.length
+      ? this.props.entries.find(
+          entry => entry.id === this.state.entryClicked[0]
+        )
       : null;
     return (
       <div>
         <h1>Your Journal</h1>
-        <button onClick={this.newEntryHandler}>New Entry</button>
+        <button onClick={this.newEntryButtonHandler}>New Entry</button>
         {this.state.newEntryClicked ? (
-          <Submission
-            journalId={this.props.journal.id}
-            handleNewEntry={this.createEntry}
-          />
+          <Submission journalId={this.props.journal_id} />
         ) : null}
         {entries ? entries : null}
+        {entry ? <EditForm entry={entry} /> : null}
       </div>
     );
   }
@@ -71,7 +62,8 @@ class Journal extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    journal: state.journal
+    journal_id: state.journal.id,
+    entries: state.entries
   };
 };
 

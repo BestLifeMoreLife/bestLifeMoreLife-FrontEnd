@@ -1,4 +1,5 @@
 import React from "react";
+import * as actions from "../actions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
@@ -16,13 +17,22 @@ class Submission extends React.Component {
     });
   };
 
+  formSubmitHandler = e => {
+    e.preventDefault();
+    this.props.createEntry(this.state, this.props.history);
+    this.setState({
+      content: "",
+      public: !this.state.public
+    });
+  };
+
   checkboxChangeHandler = e => {
     this.setState({
       public: !this.state.public
     });
   };
+
   render() {
-    console.log("submission", this.state, this.props.journal_id);
     return (
       <div>
         <input
@@ -34,9 +44,7 @@ class Submission extends React.Component {
           Public?
           <input type="checkbox" onChange={this.checkboxChangeHandler} />
         </label>
-        <button onClick={() => this.props.handleNewEntry(this.state)}>
-          Submit
-        </button>
+        <button onClick={this.formSubmitHandler}>Submit</button>
       </div>
     );
   }
@@ -47,4 +55,4 @@ const mapStateToProps = state => {
     journal_id: state.journal.id
   };
 };
-export default withRouter(connect(mapStateToProps)(Submission));
+export default withRouter(connect(mapStateToProps, actions)(Submission));

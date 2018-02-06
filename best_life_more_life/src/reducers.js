@@ -1,5 +1,14 @@
 import { combineReducers } from "redux";
-import { LOGIN, UPDATE, NEW_JOURNAL, GET_JOURNAL } from "./actions/types";
+import {
+  LOGIN,
+  UPDATE,
+  NEW_JOURNAL,
+  GET_JOURNAL,
+  FETCH_ENTRIES,
+  ADD_ENTRY,
+  EDIT_ENTRY,
+  DELETE_ENTRY
+} from "./actions/types";
 
 const userReducer = (state = {}, action) => {
   switch (action.type) {
@@ -22,9 +31,24 @@ const journalReducer = (state = {}, action) => {
   }
 };
 
+const entriesReducer = (state = [], action) => {
+  switch (action.type) {
+    case FETCH_ENTRIES:
+      return action.entries;
+    case ADD_ENTRY:
+      return action.entries;
+    case EDIT_ENTRY:
+      return action.entries;
+    case DELETE_ENTRY:
+      return action.entries;
+    default:
+      return state;
+  }
+};
 const rootReducer = combineReducers({
   currentUser: userReducer,
-  journal: journalReducer
+  journal: journalReducer,
+  entries: entriesReducer
 });
 
 export default rootReducer;
