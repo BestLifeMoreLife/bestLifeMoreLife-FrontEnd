@@ -6,3 +6,4 @@ export const FETCH_ENTRIES = "FETCH_ENTRIES";
 export const ADD_ENTRY = "ADD_ENTRY";
 export const EDIT_ENTRY = "EDIT_ENTRY";
 export const DELETE_ENTRY = "DELETE_ENTRY";
+export const UPDATE_ENTRY_CLICKED = "UPDATE_ENTRY_CLICKED";

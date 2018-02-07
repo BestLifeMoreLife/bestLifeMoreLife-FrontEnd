@@ -5,24 +5,19 @@ import { withRouter } from "react-router-dom";
 
 class EditForm extends React.Component {
   state = {
-    content: ""
-  };
-
-  formChangeHandler = e => {
-    this.setState({
-      content: e.target.value
-    });
+    content: this.props.content
   };
 
   editEntry = e => {
     e.preventDefault();
     let entry_id = this.props.entry.id;
-    let content = this.state.content;
+    let content = e.target.value;
     this.props.editEntry(entry_id, content, this.props.history);
     this.setState({
       content: ""
     });
   };
+
   deleteEntry = e => {
     e.preventDefault();
     let entry_id = this.props.entry.id;
@@ -35,10 +30,12 @@ class EditForm extends React.Component {
         <form>
           <input
             type="textbox"
-            value={this.state.content}
-            onChange={this.formChangeHandler}
+            value={this.props.content}
+            onChange={this.props.changeHandler}
           />
-          <button onClick={this.editEntry}>Update</button>{" "}
+          <button onClick={this.editEntry} value={this.props.content}>
+            Update
+          </button>{" "}
           <button onClick={this.deleteEntry}>Delete</button>
         </form>
       </div>

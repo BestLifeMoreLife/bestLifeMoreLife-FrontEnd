@@ -7,7 +7,8 @@ import {
   FETCH_ENTRIES,
   ADD_ENTRY,
   EDIT_ENTRY,
-  DELETE_ENTRY
+  DELETE_ENTRY,
+  UPDATE_ENTRY_CLICKED
 } from "./actions/types";
 
 const userReducer = (state = {}, action) => {

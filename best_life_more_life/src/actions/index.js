@@ -6,7 +6,8 @@ import {
   FETCH_ENTRIES,
   ADD_ENTRY,
   EDIT_ENTRY,
-  DELETE_ENTRY
+  DELETE_ENTRY,
+  UPDATE_ENTRY_CLICKED
 } from "./types";
 
 export function login(spotify_code, history) {
@@ -62,7 +63,6 @@ export function newJournal(user_id, history) {
   };
 }
 export function fetchJournal(user_id, history) {
-  console.log("fetch", user_id);
   return dispatch => {
     return fetch(`http://localhost:3000/api/v1/journals/`, {
       headers: {

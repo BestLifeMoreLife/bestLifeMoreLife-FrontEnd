@@ -24,6 +24,7 @@ class Submission extends React.Component {
       content: "",
       public: !this.state.public
     });
+    this.props.updateNewEntryClicked();
   };
 
   checkboxChangeHandler = e => {
