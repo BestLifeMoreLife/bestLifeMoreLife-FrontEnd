@@ -8,7 +8,6 @@ class SignUpQuestion extends React.Component {
     user: this.props.user,
     selected: [],
     scores: {},
-    moods: {},
     score: 0
   };
   formRadioHandler = e => {
@@ -22,21 +21,19 @@ class SignUpQuestion extends React.Component {
     let selected = this.state.selected;
     selected.push(id);
     scores[id] = score;
-    moods[questionId] = mood;
     let total = Math.round(Object.values(scores).reduce((a, v) => a + v) / 2);
     console.log("handler", total);
     this.setState({
       question_id: 0,
       selected: selected,
       scores: scores,
-      moods: moods,
       score: total
     });
   };
 
   completeHandler = e => {
     e.preventDefault();
-    this.props.updateUser(this.state, this.props.history);
+    this.props.updateUserScore(this.state, this.props.history);
   };
 
   render() {

@@ -4,6 +4,7 @@ import "../App.css";
 import Navbar from "./Navbar";
 import WelcomePage from "./WelcomePage";
 import SignUpQuizContainer from "./SignUpQuizContainer";
+import EntryQuizContainer from "./EntryQuizContainer";
 import LoginPage from "./LoginPage";
 import UserAuth from "./UserAuth";
 import IntroPage from "./IntroPage";
@@ -19,6 +20,7 @@ class App extends Component {
           <Route path="/auth" component={UserAuth} />
           <Route path="/profile" component={WelcomePage} />
           <Route path="/quiz" component={SignUpQuizContainer} />
+          <Route path="/entryquiz" component={EntryQuizContainer} />
           <Route path="/intro" component={IntroPage} />
           <Route path="/journal" component={Journal} />
         </Switch>

@@ -28,7 +28,7 @@ export function login(spotify_code, history) {
       });
   };
 }
-export function updateUser(props, history) {
+export function updateUserScore(props, history) {
   return dispatch => {
     return fetch(`http://localhost:3000/api/v1/users/new`, {
       method: "PATCH",
@@ -45,6 +45,7 @@ export function updateUser(props, history) {
       });
   };
 }
+
 export function newJournal(user_id, history) {
   return dispatch => {
     return fetch(`http://localhost:3000/api/v1/journals/new`, {

@@ -28,7 +28,6 @@ class SignUpQuizContainer extends React.Component {
 
   render() {
     let questions = this.state.test.questions;
-    console.log("render in sign up", this.state.test, questions);
     return (
       <Switch>
         <Route

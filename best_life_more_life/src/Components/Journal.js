@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Submission from "./Submission";
+import EntryQuizContainer from "./EntryQuizContainer";
 import EditForm from "./EditForm";
 import * as actions from "../actions";
 
@@ -64,6 +65,7 @@ class Journal extends React.Component {
     return (
       <div>
         <h1>Your Journal</h1>
+        <Link to="/entryquiz/0">Click For New Entry</Link>
         <button onClick={this.newEntryButtonHandler}>New Entry</button>
         {this.state.newEntryClicked ? <EntryQuizContainer /> : null}
         {entries ? entries : null}

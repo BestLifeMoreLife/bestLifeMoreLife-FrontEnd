@@ -9,7 +9,26 @@ class EntryQuizContainer extends React.Component {
     test: {}
   };
 
+  componentDidMount() {
+    this.fetchTest("New Entry Quiz");
+  }
+
+  fetchTest = name => {
+    fetch(`http://localhost:3000/api/v1/tests`)
+      .then(resp => resp.json())
+      .then(resp => {
+        return resp.forEach(test => {
+          if (test.name === name) {
+            this.setState({
+              test: test
+            });
+          }
+        });
+      });
+  };
+
   render() {
+    let questions = this.state.test.questions;
     return (
       <Switch>
         <Route
@@ -22,3 +41,9 @@ class EntryQuizContainer extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user: state.currentUser
+});
+
+export default connect(mapStateToProps, actions)(EntryQuizContainer);
