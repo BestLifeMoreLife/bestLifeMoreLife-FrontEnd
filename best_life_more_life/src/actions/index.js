@@ -151,3 +151,7 @@ export function deleteEntry(entry_id, history) {
       });
   };
 }
+
+export function playlistSrc(src) {
+  return { type: "SRC", src };
+}

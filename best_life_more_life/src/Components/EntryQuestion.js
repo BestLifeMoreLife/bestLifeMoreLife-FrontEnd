@@ -1,30 +1,39 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
 class EntryQuestion extends React.Component {
   state = {
-    user: this.props.user,
     selected: [],
     score: 0
   };
 
   fetchPlaylist = () => {
-    console.log("fetch");
-    fetch("http://localhost:3000/api/v1/playlists", {
+    console.log("fetch", this.props.user.track.artist_id);
+    fetch("http://localhost:3000/api/v1/playlist", {
+      method: "POST",
       headers: {
-        artist: this.state.user.artist,
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        artist: this.props.user.track.artist_id,
         score: this.state.score
-      }
-    });
+      })
+    })
+      .then(resp => resp.json())
+      .then(src => {
+        this.props.playlistSrc(src);
+      })
+      .then(resp => this.props.history.push("/newentry"));
   };
 
   formRadioHandler = e => {
-    let id = parseInt(e.target.id, 10);
+    let value = parseInt(e.target.value, 10);
     let questionId = e.target.dataset.tag;
     let selected = this.state.selected;
-    selected.push(id);
+    selected.push(value);
     this.setState({
       selected: selected
     });
@@ -32,8 +41,14 @@ class EntryQuestion extends React.Component {
 
   completeHandler = e => {
     e.preventDefault();
-    console.log("handler");
-    this.fetchPlaylist();
+    let score = this.state.selected.reduce((a, b) => a + b);
+    console.log("handler", score);
+    this.setState(
+      {
+        score
+      },
+      () => this.fetchPlaylist()
+    );
   };
 
   render() {
@@ -110,4 +125,4 @@ const mapStateToProps = state => {
     user: state.currentUser
   };
 };
-export default connect(mapStateToProps, actions)(EntryQuestion);
+export default withRouter(connect(mapStateToProps, actions)(EntryQuestion));

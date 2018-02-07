@@ -9,6 +9,7 @@ import LoginPage from "./LoginPage";
 import UserAuth from "./UserAuth";
 import IntroPage from "./IntroPage";
 import Journal from "./Journal";
+import NewEntry from "./NewEntry";
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
           <Route path="/auth" component={UserAuth} />
           <Route path="/profile" component={WelcomePage} />
           <Route path="/quiz" component={SignUpQuizContainer} />
+          <Route path="/newentry" component={NewEntry} />
           <Route path="/entryquiz" component={EntryQuizContainer} />
           <Route path="/intro" component={IntroPage} />
           <Route path="/journal" component={Journal} />

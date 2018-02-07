@@ -46,10 +46,20 @@ const entriesReducer = (state = [], action) => {
       return state;
   }
 };
+
+const playlistReducer = (state = "", action) => {
+  switch (action.type) {
+    case "SRC":
+      return action.src;
+    default:
+      return state;
+  }
+};
 const rootReducer = combineReducers({
   currentUser: userReducer,
   journal: journalReducer,
-  entries: entriesReducer
+  entries: entriesReducer,
+  playlist_src: playlistReducer
 });
 
 export default rootReducer;

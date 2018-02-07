@@ -65,8 +65,10 @@ class Journal extends React.Component {
     return (
       <div>
         <h1>Your Journal</h1>
-        <Link to="/entryquiz/0">Click For New Entry</Link>
-        <button onClick={this.newEntryButtonHandler}>New Entry</button>
+        <Link to="/entryquiz/0">
+          <button>New Entry</button>
+        </Link>
+
         {this.state.newEntryClicked ? <EntryQuizContainer /> : null}
         {entries ? entries : null}
         {this.state.entry_content ? (
