@@ -38,12 +38,6 @@ class Journal extends React.Component {
     });
   };
 
-  updateNewEntryClicked = () => {
-    this.setState({
-      newEntryClicked: false
-    });
-  };
-
   formChangeHandler = e => {
     this.setState({
       entry_content: e.target.value
@@ -90,10 +84,5 @@ const mapStateToProps = state => {
     newEntryClicked: state.newEntryClicked
   };
 };
-{
-  /*<Submission
-  journalId={this.props.journal_id}
-  updateNewEntryClicked={this.updateNewEntryClicked}
-/>*/
-}
+
 export default withRouter(connect(mapStateToProps, actions)(Journal));
