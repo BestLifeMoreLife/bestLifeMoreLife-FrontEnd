@@ -6,8 +6,7 @@ import {
   FETCH_ENTRIES,
   ADD_ENTRY,
   EDIT_ENTRY,
-  DELETE_ENTRY,
-  UPDATE_ENTRY_CLICKED
+  DELETE_ENTRY
 } from "./types";
 
 export function login(spotify_code, history) {

@@ -14,10 +14,7 @@ class SignUpQuestion extends React.Component {
     console.log("radio", e.target);
     let id = parseInt(e.target.id, 10);
     let score = parseInt(e.target.value, 10);
-    let mood = e.target.className;
     let scores = this.state.scores;
-    let moods = this.state.moods;
-    let questionId = e.target.dataset.tag;
     let selected = this.state.selected;
     selected.push(id);
     scores[id] = score;

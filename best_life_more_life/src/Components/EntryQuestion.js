@@ -31,7 +31,6 @@ class EntryQuestion extends React.Component {
 
   formRadioHandler = e => {
     let value = parseInt(e.target.value, 10);
-    let questionId = e.target.dataset.tag;
     let selected = this.state.selected;
     selected.push(value);
     this.setState({
