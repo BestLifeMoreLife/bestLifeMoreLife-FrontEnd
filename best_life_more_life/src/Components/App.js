@@ -14,10 +14,10 @@ import NewEntry from "./NewEntry";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <Navbar />
         <Switch>
-          <Route path="/login" component={LoginPage} />
+          <Route path="/" component={LoginPage} />
           <Route path="/auth" component={UserAuth} />
           <Route path="/profile" component={WelcomePage} />
           <Route path="/quiz" component={SignUpQuizContainer} />

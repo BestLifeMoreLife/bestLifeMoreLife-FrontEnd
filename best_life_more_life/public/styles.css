@@ -1,0 +1,41 @@
+.slide {
+  width: 100%;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: #4286f4;
+}
+.logo {
+  top: 3px;
+  color: white;
+  position: absolute;
+  right: 50%;
+  font-size: 2em;
+  font-family: Brush Script MT, cursive;
+}
+.login {
+  top: 3px;
+  color: white;
+  font-size: 1.5em;
+  position: absolute;
+  right: 3%;
+}
