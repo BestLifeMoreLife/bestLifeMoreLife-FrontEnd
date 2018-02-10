@@ -1,8 +1,9 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
 const Navbar = props => {
-  const loggedIn = false;
+  console.log("test", props.user);
   return (
     <div>
       <ul>
@@ -11,17 +12,59 @@ const Navbar = props => {
             Best Life, More Life
           </h3>
         </li>
-        <li>
-          <a className="login" href="http://localhost:3000/api/v1/login">
-            Login
-          </a>
-        </li>
+        {props.user.track ? (
+          <li>
+            <a className="login">Log Out</a>
+          </li>
+        ) : (
+          <li>
+            <a className="login" href="http://localhost:3000/api/v1/login">
+              Login
+            </a>
+          </li>
+        )}
       </ul>
     </div>
   );
 };
 
-export default withRouter(Navbar);
+const sideBar = () => {
+  return (
+    <div>
+      <button class="ui button" role="button">
+        Toggle Visibility
+      </button>
+      <div class="ui segment pushable">
+        <div class="ui inverted vertical labeled icon ui overlay left thin sidebar menu">
+          <div class="item">
+            <i aria-hidden="true" class="home icon" />Home
+          </div>
+          <div class="item">
+            <i aria-hidden="true" class="gamepad icon" />Games
+          </div>
+          <div class="item">
+            <i aria-hidden="true" class="camera icon" />Channels
+          </div>
+        </div>
+        <div class="pusher">
+          <div class="ui basic segment">
+            <h3 class="ui header">Application Content</h3>
+            <img
+              src="/assets/images/wireframe/paragraph.png"
+              class="ui image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const mapStateToProps = state => {
+  return { user: state.currentUser };
+};
+
+export default connect(mapStateToProps)(withRouter(Navbar));
 
 {
   /*<a href="http://localhost:3000/api/v1/login">

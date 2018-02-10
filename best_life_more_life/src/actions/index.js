@@ -6,7 +6,8 @@ import {
   FETCH_ENTRIES,
   ADD_ENTRY,
   EDIT_ENTRY,
-  DELETE_ENTRY
+  DELETE_ENTRY,
+  RESET_USER
 } from "./types";
 
 export function login(spotify_code, history) {
@@ -27,6 +28,12 @@ export function login(spotify_code, history) {
       });
   };
 }
+
+export function resetUser(history) {
+  history.push("/");
+  return { type: RESET_USER };
+}
+
 export function updateUserScore(props, history) {
   return dispatch => {
     return fetch(`http://localhost:3000/api/v1/users/new`, {

@@ -6,7 +6,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #090b0c;
 }
 
 li {
@@ -34,8 +34,15 @@ li a:hover {
 }
 .login {
   top: 3px;
+  left: 85em;
   color: white;
   font-size: 1.5em;
-  position: absolute;
-  right: 3%;
+  position: relative;
+}
+.journal {
+  top: 3px;
+  right: 45%;
+  color: white;
+  font-size: 1.5em;
+  position: relative;
 }

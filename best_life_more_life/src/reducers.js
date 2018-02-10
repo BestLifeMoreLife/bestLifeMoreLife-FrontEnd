@@ -7,7 +7,8 @@ import {
   FETCH_ENTRIES,
   ADD_ENTRY,
   EDIT_ENTRY,
-  DELETE_ENTRY
+  DELETE_ENTRY,
+  RESET_USER
 } from "./actions/types";
 
 const userReducer = (state = {}, action) => {
@@ -16,6 +17,8 @@ const userReducer = (state = {}, action) => {
       return action.user;
     case UPDATE:
       return action.user;
+    case RESET_USER:
+      return state;
     default:
       return state;
   }
