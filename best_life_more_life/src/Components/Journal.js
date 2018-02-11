@@ -58,7 +58,7 @@ class Journal extends React.Component {
 
     return (
       <div>
-        <BackgroundImage />
+        <BackgroundImage page={"journal"} />
 
         <h1>Your Journal</h1>
         <Link to="/entryquiz/0">

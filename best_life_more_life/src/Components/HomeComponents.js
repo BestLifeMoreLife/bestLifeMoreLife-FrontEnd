@@ -3,8 +3,8 @@ import React from "react";
 class HomeComponents extends React.Component {
   state = {
     images: [
-      "http://i.imgur.com/hG0rOzR.jpg",
-      "https://5dwallpaper.com/download/?file_path=94114"
+      "http://static.djbooth.net/pics-features/rect/kanye-writing-book-hip-hop.jpg",
+      "http://s3.amazonaws.com/digitaltrends-uploads-prod/2016/01/kanye-west-singer-rapper-musician.jpg"
     ],
     activeImage: 0
   };
@@ -39,9 +39,9 @@ class HomeComponents extends React.Component {
     let index = this.state.activeImage;
     let text =
       this.state.activeImage === 0 ? (
-        <div className="photo-text">"Testing 1"</div>
+        <div className="photo-text">New Entry</div>
       ) : (
-        <div className="photo-text">"Testing 2"</div>
+        <div className="photo-text">Listen</div>
       );
     let slide;
 

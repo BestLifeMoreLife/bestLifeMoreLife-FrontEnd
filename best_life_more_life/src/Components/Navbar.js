@@ -4,7 +4,6 @@ import { Link, withRouter } from "react-router-dom";
 
 const Navbar = props => {
   const loggedIn = !!props.user.name;
-  console.log(props.user.track);
   const tookQuiz = !!props.user.track;
   let quizItem;
   if (loggedIn && tookQuiz) {

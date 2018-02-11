@@ -1,4 +1,4 @@
-export const kanyeMain =
-  "https://wallpaperstock.net/dark-rose-wallpapers_32709_1920x1200.jpg";
-export const kanyeOther =
+export const kanyeMain = "http://i.imgur.com/0JEyLof.jpg";
+export const kanyeOther = "http://i.imgur.com/0JEyLof.jpg";
+export const kanyeSecondary =
   " https://hdwallsource.com/img/2017/4/kanye-west-performing-hd-wallpaper-59575-61362-hd-wallpapers.jpg";

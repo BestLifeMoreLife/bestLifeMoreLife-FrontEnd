@@ -196,15 +196,17 @@ div#list-container {
   z-index: -1;
 }
 .news-container {
+  background-color: black;
   position: absolute;
   top: 25%;
-  right: 35%;
-  width: 30%;
-  height: 40%;
+  right: 5%;
+  width: 45%;
+  height: 45%;
   z-index: 1;
 }
 .homeImage {
-  opacity: 1;
+  opacity: 0.7;
+  height: 75%;
 }
 img {
   width: 100%;
@@ -228,4 +230,16 @@ img {
   left: 43%;
   height: 50%;
   z-index: 1;
+}
+.photo-text {
+  position: absolute;
+  bottom: 18%;
+  right: 40%;
+  font-size: 2em;
+  color: white;
+}
+.ui.buttons {
+  position: absolute;
+  bottom: 5%;
+  right: 31%;
 }
