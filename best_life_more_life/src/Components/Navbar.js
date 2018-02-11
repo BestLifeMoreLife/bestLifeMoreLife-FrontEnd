@@ -4,33 +4,36 @@ import { Link, withRouter } from "react-router-dom";
 const Navbar = props => {
   const loggedIn = false;
   return (
-    <div>
-      <h2 className="ui header">
-        <div className="content">Best Life More Life</div>
-      </h2>
+    <nav role="navigation">
+      <h2 className="header">Best Life, More Life</h2>
 
-      {loggedIn ? (
-        <div className="item">Welcome </div>
-      ) : (
-        <Link to="/login" className="item">
-          <h2 className="ui header">
-            <div className="content">Login</div>
-          </h2>
-        </Link>
-      )}
-      {loggedIn ? (
-        <div>
-          <div
-            onClick={() => {
-              this.props.handleLogout();
-              this.props.history.push("/login");
-            }}
-          >
-            Log Out
+      <div id="menuToggle">
+        <input type="checkbox" />
+
+        <span />
+        <span />
+        <span />
+        <ul id="menu">
+          <div id="list-container">
+            <a href="#">
+              <li>Home</li>
+            </a>
+            <a href="#">
+              <li>About</li>
+            </a>
+            <a href="#">
+              <li>Info</li>
+            </a>
+            <a href="#">
+              <li>Contact</li>
+            </a>
+            <a href="https://erikterwan.com/" target="_blank">
+              <li>Show me more</li>
+            </a>
           </div>
-        </div>
-      ) : null}
-    </div>
+        </ul>
+      </div>
+    </nav>
   );
 };
 
