@@ -2,6 +2,8 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../actions";
+import BackgroundImage from "./BackgroundImage";
+import HomeComponents from "./HomeComponents";
 
 class HomePage extends React.Component {
   componentDidMount() {
@@ -10,10 +12,8 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Your Home Page</h1>
-        <Link to="/journal">
-          <h2>Go To Your Journals</h2>
-        </Link>
+        <BackgroundImage />
+        <HomeComponents />
       </div>
     );
   }

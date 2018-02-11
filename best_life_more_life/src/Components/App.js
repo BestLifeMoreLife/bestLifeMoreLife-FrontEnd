@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 import WelcomePage from "./WelcomePage";
 import SignUpQuizContainer from "./SignUpQuizContainer";
 import EntryQuizContainer from "./EntryQuizContainer";
-import LoginPage from "./LoginPage";
+import Home from "./Home";
 import UserAuth from "./UserAuth";
 import IntroPage from "./IntroPage";
 import Journal from "./Journal";
@@ -17,14 +17,14 @@ class App extends Component {
       <div className="App">
         <Navbar />
         <Switch>
-          <Route path="/login" component={LoginPage} />
           <Route path="/auth" component={UserAuth} />
-          <Route path="/profile" component={WelcomePage} />
+          <Route path="/home" component={WelcomePage} />
           <Route path="/quiz" component={SignUpQuizContainer} />
           <Route path="/newentry" component={NewEntry} />
           <Route path="/entryquiz" component={EntryQuizContainer} />
           <Route path="/intro" component={IntroPage} />
           <Route path="/journal" component={Journal} />
+          <Route path="/" component={Home} />
         </Switch>
       </div>
     );

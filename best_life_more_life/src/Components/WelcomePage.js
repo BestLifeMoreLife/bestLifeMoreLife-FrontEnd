@@ -17,7 +17,12 @@ class WelcomePage extends React.Component {
     console.log("welcome", this.props.user);
     return (
       <div>
-        <h1>Welcome</h1>
+        <div className="welcome-image">
+          <image
+            src="http://wallpapersdsc.net/wp-content/uploads/2015/11/10120.jpg"
+            alt=""
+          />
+        </div>
         {this.props.user.score > 0 ? (
           <HomePage />
         ) : (

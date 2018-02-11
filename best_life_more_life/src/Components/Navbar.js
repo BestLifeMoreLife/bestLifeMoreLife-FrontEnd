@@ -1,12 +1,45 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 
 const Navbar = props => {
-  const loggedIn = false;
+  const loggedIn = !!props.user.name;
+  console.log(props.user.track);
+  const tookQuiz = !!props.user.track;
+  let quizItem;
+  if (loggedIn && tookQuiz) {
+    quizItem = (
+      <Link to="/journal">
+        <li>Your Journal</li>
+      </Link>
+    );
+  } else if (loggedIn && !tookQuiz) {
+    quizItem = (
+      <a>
+        <li>Get Started</li>
+      </a>
+    );
+  } else {
+    quizItem = null;
+  }
+  let homeLink;
+  if (loggedIn && tookQuiz) {
+    homeLink = (
+      <Link to="/home">
+        <li>Home</li>
+      </Link>
+    );
+  } else if (loggedIn && !tookQuiz) {
+    homeLink = (
+      <Link to="/home">
+        <li>Home</li>
+      </Link>
+    );
+  } else {
+    homeLink = null;
+  }
   return (
     <nav role="navigation">
-      <h2 className="header">Best Life, More Life</h2>
-
       <div id="menuToggle">
         <input type="checkbox" />
 
@@ -15,12 +48,14 @@ const Navbar = props => {
         <span />
         <ul id="menu">
           <div id="list-container">
-            <a href="#">
-              <li>Home</li>
+            <a href="http://localhost:3000/api/v1/login">
+              {loggedIn ? <li>Log Out</li> : <li>Login</li>}
             </a>
-            <a href="#">
+            {quizItem}
+            {homeLink}
+            <Link to="/journal">
               <li>About</li>
-            </a>
+            </Link>
             <a href="#">
               <li>Info</li>
             </a>
@@ -37,4 +72,8 @@ const Navbar = props => {
   );
 };
 
-export default withRouter(Navbar);
+const mapStateToProps = state => {
+  return { user: state.currentUser };
+};
+
+export default connect(mapStateToProps)(withRouter(Navbar));

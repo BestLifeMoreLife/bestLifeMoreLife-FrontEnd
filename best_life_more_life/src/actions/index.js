@@ -10,6 +10,7 @@ import {
 } from "./types";
 
 export function login(spotify_code, history) {
+  console.log("in login");
   return dispatch => {
     return fetch(`http://localhost:3000/api/v1/users/new`, {
       method: "POST",
@@ -23,7 +24,7 @@ export function login(spotify_code, history) {
       .then(user => {
         localStorage.setItem("jwt", user.token);
         dispatch({ type: LOGIN, user });
-        history.push("/profile");
+        history.push("/home");
       });
   };
 }

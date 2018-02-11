@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import EntryQuizContainer from "./EntryQuizContainer";
 import EditForm from "./EditForm";
+import BackgroundImage from "./BackgroundImage";
 import * as actions from "../actions";
 
 class Journal extends React.Component {
@@ -57,6 +58,8 @@ class Journal extends React.Component {
 
     return (
       <div>
+        <BackgroundImage />
+
         <h1>Your Journal</h1>
         <Link to="/entryquiz/0">
           <button>New Entry</button>
