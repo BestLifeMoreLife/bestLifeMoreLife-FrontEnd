@@ -7,6 +7,7 @@ class HomePage extends React.Component {
   componentDidMount() {
     this.props.fetchJournal(this.props.user.id);
   }
+
   render() {
     return (
       <div>
@@ -24,5 +25,7 @@ const mapStateToProps = state => {
     user: state.currentUser
   };
 };
+
+//
 
 export default withRouter(connect(mapStateToProps, actions)(HomePage));
