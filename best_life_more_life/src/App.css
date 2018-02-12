@@ -367,23 +367,28 @@ textarea {
   overflow: auto;
   word-wrap: break-word;
   resize: none;
-  height: 35%;
+  height: 85%;
+  position: absolute;
+  right: 15%;
 }
 
 .update-form {
   position: absolute;
-  left: 57%;
+  left: 55%;
   top: 10%;
+  height: 55%;
 }
 
 .editForm-submit {
   position: absolute;
   right: 50%;
+  top: 90%;
 }
 .editForm-delete {
   position: absolute;
   right: 25%;
+  top: 90%;
 }
-.form-container {
+.textarea-container {
   overflow: auto;
 }

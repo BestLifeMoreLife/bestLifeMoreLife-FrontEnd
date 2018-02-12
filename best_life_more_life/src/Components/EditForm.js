@@ -30,10 +30,11 @@ class EditForm extends React.Component {
         <div className="update-form">
           <div id="wrapper">
             <form id="paper" method="get" action="">
-              <div id="margin">
-                Title: <input id="title" type="text" name="title" />
-              </div>
-              <div className="form-container">
+              {/*<div id="margin">
+                "Your girl don't like me how long has she been gay???" - Kanye
+                West
+              </div>*/}
+              <div className="textarea-container">
                 <textarea
                   placeholder="Enter something funny."
                   value={this.props.content}
@@ -50,7 +51,7 @@ class EditForm extends React.Component {
                 className="editForm-submit"
                 onClick={this.editEntry}
               >
-                Edit
+                Update
               </button>
               <button
                 id="button"
@@ -67,4 +68,8 @@ class EditForm extends React.Component {
   }
 }
 
-export default withRouter(connect(null, actions)(EditForm));
+const mapStateToProps = state => {
+  return { user: state.currentUser };
+};
+
+export default withRouter(connect(mapStateToProps, actions)(EditForm));
