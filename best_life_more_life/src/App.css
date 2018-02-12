@@ -497,3 +497,49 @@ div.newEntry-container {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
 }
+label.public {
+  position: absolute;
+  top: 7%;
+  left: 66%;
+  color: black;
+  font-family: Courier, monospace;
+  font-size: 1.2em;
+}
+div.newEntry-masterDiv {
+  top: 5%;
+  position: absolute;
+  height: 95%;
+  width: 100%;
+}
+#newEntry-button {
+  bottom: 3%;
+  right: 25%;
+  cursor: pointer;
+  position: absolute;
+  margin-top: 20px;
+  height: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: #fff;
+  text-shadow: 0px -1px 0px #000000;
+  border-radius: 8px;
+  border-top: 1px solid #fff;
+  -webkit-box-shadow: 0px 2px 14px #000;
+  box-shadow: 0px 2px 14px #000;
+  background-color: #62add6;
+  background-image: url(https://static.tumblr.com/maopbtg/ZHLmgtok7/newEntry-button.png);
+  background-repeat: repeat-x;
+}
+#newEntry-button:active {
+  zoom: 1;
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+}
+#newEntry-button:focus {
+  zoom: 1;
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+}

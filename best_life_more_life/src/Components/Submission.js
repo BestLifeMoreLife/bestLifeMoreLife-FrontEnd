@@ -35,40 +35,34 @@ class Submission extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="newEntry-form">
-          <div id="wrapper">
-            <form id="paper" action="">
-              {/*<div id="margin">
-                "Your girl don't like me how long has she been gay???" - Kanye
-                West
-              </div>*/}
-              <div className="newEntry-container">
-                <textarea
-                  className="newEntry-textarea"
-                  placeholder="Enter something funny."
-                  value={this.state.content}
-                  onChange={this.formChangeHandler}
-                  id="newEntry-text"
-                  name="text"
-                  rows="4"
-                />
-              </div>
-              <br />
-              <button
-                id="button"
-                value={this.props.content}
-                className="editForm-submit"
-                onClick={this.formSubmitHandler}
-              >
-                Submit
-              </button>
-              <label>
-                Public?
-                <input type="checkbox" onChange={this.checkboxChangeHandler} />
-              </label>
-            </form>
-          </div>
+      <div className="newEntry-masterDiv">
+        <div id="wrapper">
+          <form id="paper" action="">
+            <div className="newEntry-container">
+              <textarea
+                className="newEntry-textarea"
+                placeholder="Enter something funny."
+                value={this.state.content}
+                onChange={this.formChangeHandler}
+                id="newEntry-text"
+                name="text"
+                rows="4"
+              />
+            </div>
+            <br />
+            <button
+              id="newEntry-button"
+              value={this.props.content}
+              className="newEntry-submit"
+              onClick={this.formSubmitHandler}
+            >
+              Submit
+            </button>
+            <label className="public">
+              Public?
+              <input type="checkbox" onChange={this.checkboxChangeHandler} />
+            </label>
+          </form>
         </div>
 
         {/*<input
