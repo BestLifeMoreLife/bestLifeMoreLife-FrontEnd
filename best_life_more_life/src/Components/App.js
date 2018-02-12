@@ -16,6 +16,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
+
         <Switch>
           <Route path="/auth" component={UserAuth} />
           <Route path="/home" component={WelcomePage} />
@@ -30,5 +31,9 @@ class App extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return { playlist: state.playlist_src };
+};
 
 export default App;

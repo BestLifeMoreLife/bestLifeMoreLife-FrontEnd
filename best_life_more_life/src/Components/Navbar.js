@@ -72,7 +72,7 @@ const Navbar = props => {
 };
 
 const mapStateToProps = state => {
-  return { user: state.currentUser };
+  return { user: state.currentUser, playlist: state.playlist_src };
 };
 
 export default connect(mapStateToProps)(withRouter(Navbar));
