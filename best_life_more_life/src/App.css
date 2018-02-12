@@ -392,3 +392,17 @@ textarea {
 .textarea-container {
   overflow: auto;
 }
+
+.newEntry-button {
+  position: absolute;
+  top: 60%;
+  right: 41%;
+  width: 14%;
+}
+p.entries {
+  position: absolute;
+  left: 46%;
+  font-size: 2.5em;
+  top: 6%;
+  font-weight: bolder;
+}

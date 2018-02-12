@@ -78,10 +78,13 @@ class Journal extends React.Component {
     return (
       <div>
         <BackgroundImage />
+        <p className="entries">Entries:</p>
         <div className="entries-container">{entries ? entries : null}</div>
         <Link to="/entryquiz/0">
-          <button>New Entry</button>
-        </Link>;
+          <button id="button" className="newEntry-button">
+            New Entry
+          </button>
+        </Link>
         {this.state.newEntryClicked ? <EntryQuizContainer /> : null}
         {this.state.entry_content ? (
           <EditForm
