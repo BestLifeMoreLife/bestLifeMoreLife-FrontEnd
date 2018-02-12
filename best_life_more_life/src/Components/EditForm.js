@@ -29,11 +29,7 @@ class EditForm extends React.Component {
       <div>
         <div className="update-form">
           <div id="wrapper">
-            <form id="paper" method="get" action="">
-              {/*<div id="margin">
-                "Your girl don't like me how long has she been gay???" - Kanye
-                West
-              </div>*/}
+            <form id="paper" action="">
               <div className="textarea-container">
                 <textarea
                   placeholder="Enter something funny."
