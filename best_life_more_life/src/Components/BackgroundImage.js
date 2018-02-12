@@ -7,8 +7,8 @@ const BackgroundImage = props => {
   const userArtist = props.user.artist ? props.user.artist.name : null;
   return (
     <div className="background-image">
-      <img src={kanyeMain} alt="" />
-      <div className="background-text">{"Best Life, More Life"}</div>
+      <img src={kanyeSecondary} alt="" />
+      {/*<div className="background-text">{"Best Life, More Life"}</div>*/}
       {/*<div className="background-subtext">{"It's Okay To Not Be Okay"}</div>*/}
     </div>
   );

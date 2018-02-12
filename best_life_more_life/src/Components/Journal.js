@@ -48,25 +48,41 @@ class Journal extends React.Component {
     let entries = this.props.entries.length
       ? this.props.entries.map(entry => {
           let preview = entry.content.substr(0, 15);
+          let date = entry.updated_at.split("T")[0];
           return (
-            <h3 id={entry.id} key={entry.id} onClick={this.entryClickHandler}>
-              {preview}
-            </h3>
+            <div
+              role="listitem"
+              className="item"
+              id={entry.id}
+              key={entry.id}
+              onClick={this.entryClickHandler}
+            >
+              <img
+                src="https://image.flaticon.com/icons/png/512/201/201585.png"
+                className="entry-logo"
+                id={entry.id}
+              />
+              <div className="content" id={entry.id}>
+                <a className="header" id={entry.id}>
+                  {date}
+                </a>
+                <div class="description" id={entry.id}>
+                  {preview}
+                </div>
+              </div>
+            </div>
           );
         })
       : null;
 
     return (
       <div>
-        <BackgroundImage page={"journal"} />
-
-        <h1>Your Journal</h1>
+        <BackgroundImage />
+        <div className="entries-container">{entries ? entries : null}</div>
         <Link to="/entryquiz/0">
           <button>New Entry</button>
-        </Link>
-
+        </Link>;
         {this.state.newEntryClicked ? <EntryQuizContainer /> : null}
-        {entries ? entries : null}
         {this.state.entry_content ? (
           <EditForm
             content={this.state.entry_content}

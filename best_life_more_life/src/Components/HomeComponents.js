@@ -9,6 +9,10 @@ class HomeComponents extends React.Component {
     activeImage: 0
   };
 
+  componentDidMount = () => {
+    this.autoSlide();
+  };
+
   nextImage = () => {
     console.log("next");
     let newIndex = this.state.activeImage + 1;
@@ -34,6 +38,11 @@ class HomeComponents extends React.Component {
     }
   };
 
+  autoSlide = () => {
+    setInterval(() => {
+      this.nextImage();
+    }, 3000);
+  };
   render() {
     let slides = this.state.images;
     let index = this.state.activeImage;

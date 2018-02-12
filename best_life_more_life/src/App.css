@@ -41,6 +41,7 @@ body {
   background: #232323;
   color: #cdcdcd;
   font-family: cursive;
+  overflow: hidden;
 }
 
 a {
@@ -242,4 +243,36 @@ img {
   position: absolute;
   bottom: 5%;
   right: 31%;
+}
+img.entry-logo {
+  width: 30%;
+  height: 47%;
+  position: absolute;
+  right: 90%;
+}
+
+div.item {
+  position: relative;
+  width: 60%;
+  left: 25%;
+}
+.entries-container {
+  position: absolute;
+  top: 15%;
+  left: 41%;
+  width: 20%;
+  height: 45%;
+  overflow: auto;
+}
+
+.content {
+  position: relative;
+}
+a.header {
+  color: white;
+  height: 30%;
+  left: 20%;
+}
+.description {
+  padding-bottom: 18%;
 }
