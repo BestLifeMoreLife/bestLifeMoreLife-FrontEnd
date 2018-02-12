@@ -27,17 +27,41 @@ class EditForm extends React.Component {
   render() {
     return (
       <div>
-        <form>
-          <input
-            type="textbox"
-            value={this.props.content}
-            onChange={this.props.changeHandler}
-          />
-          <button onClick={this.editEntry} value={this.props.content}>
-            Update
-          </button>{" "}
-          <button onClick={this.deleteEntry}>Delete</button>
-        </form>
+        <div className="update-form">
+          <div id="wrapper">
+            <form id="paper" method="get" action="">
+              <div id="margin">
+                Title: <input id="title" type="text" name="title" />
+              </div>
+              <div className="form-container">
+                <textarea
+                  placeholder="Enter something funny."
+                  value={this.props.content}
+                  onChange={this.props.changeHandler}
+                  id="text"
+                  name="text"
+                  rows="4"
+                />
+              </div>
+              <br />
+              <button
+                id="button"
+                value={this.props.content}
+                className="editForm-submit"
+                onClick={this.editEntry}
+              >
+                Edit
+              </button>
+              <button
+                id="button"
+                className="editForm-delete"
+                onClick={this.deleteEntry}
+              >
+                Delete
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }
