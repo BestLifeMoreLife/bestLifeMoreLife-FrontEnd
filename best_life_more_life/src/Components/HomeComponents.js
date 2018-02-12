@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class HomeComponents extends React.Component {
   state = {
@@ -48,15 +49,24 @@ class HomeComponents extends React.Component {
     let index = this.state.activeImage;
     let text =
       this.state.activeImage === 0 ? (
-        <div className="photo-text">New Entry</div>
+        <Link to="/journal">
+          <div className="photo-text">Open Journal</div>
+        </Link>
       ) : (
         <div className="photo-text">Listen</div>
       );
-    let slide;
+    let slide =
+      this.state.activeImage === 0 ? (
+        <Link to="/journal">
+          <img src={slides[index]} alt="" className="homeImage" />
+        </Link>
+      ) : (
+        <img src={slides[index]} alt="" className="homeImage" />
+      );
 
     return (
       <div className="news-container">
-        <img src={slides[index]} alt="" className="homeImage" />
+        {slide}
         {text}
         <div class="ui buttons">
           <button
