@@ -3,7 +3,7 @@ import BackgroundImage from "./BackgroundImage";
 const Home = () => {
   return (
     <div>
-      <BackgroundImage />
+      <BackgroundImage location="home" />
     </div>
   );
 };

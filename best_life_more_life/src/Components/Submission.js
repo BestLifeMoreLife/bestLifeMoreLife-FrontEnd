@@ -64,17 +64,6 @@ class Submission extends React.Component {
             </label>
           </form>
         </div>
-
-        {/*<input
-          type="textbox"
-          value={this.state.content}
-          onChange={this.formChangeHandler}
-        />
-        <label>
-          Public?
-          <input type="checkbox" onChange={this.checkboxChangeHandler} />
-        </label>
-        <button onClick={this.formSubmitHandler}>Submit</button>*/}
       </div>
     );
   }

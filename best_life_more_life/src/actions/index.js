@@ -24,7 +24,7 @@ export function login(spotify_code, history) {
       .then(user => {
         localStorage.setItem("jwt", user.token);
         dispatch({ type: LOGIN, user });
-        history.push("/home");
+        history.push("/welcome");
       });
   };
 }
@@ -39,8 +39,9 @@ export function updateUserScore(props, history) {
       body: JSON.stringify({ score: props.score, user: props.user })
     })
       .then(res => res.json())
-      .then(user => {
-        dispatch({ type: UPDATE, user });
+      .then(data => {
+        dispatch({ type: UPDATE, user: data.user });
+
         history.push("/intro");
       });
   };

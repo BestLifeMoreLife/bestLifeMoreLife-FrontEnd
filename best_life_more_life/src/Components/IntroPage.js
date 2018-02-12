@@ -2,12 +2,14 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../actions";
+import BackgroundImage from "./BackgroundImage";
 
 const IntroPage = props => {
   console.log(props);
   return (
     <div>
-      {`You're on the ${props.user.track} track`}
+      <BackgroundImage />
+      {`You're on the ${props.user.track.name} track`}
       <h2 onClick={() => props.newJournal(props.user.id, props.history)}>
         Start New Journal
       </h2>

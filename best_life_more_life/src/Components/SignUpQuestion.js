@@ -41,7 +41,9 @@ class SignUpQuestion extends React.Component {
     let question = this.props.questions
       ? this.props.questions[questionId]
       : null;
-    let questionContent = question ? question.content : null;
+    let questionContent = question ? (
+      <p className="signupQuestion-question">{question.content}</p>
+    ) : null;
     let answers = question ? question.answers : null;
     let answersList;
     if (answers) {
@@ -49,27 +51,27 @@ class SignUpQuestion extends React.Component {
         answer =>
           this.state.selected.includes(answer.id) ? (
             <div key={answer.id}>
-              <label>{answer.content}</label>
+              <label className="signupQuestion-answer">{answer.content}</label>
               <input
                 type="radio"
                 name="answers"
                 checked
                 value={answer.score}
                 id={answer.id}
-                className={answer.mood}
+                className="signupQuestion-radio"
                 onChange={this.formRadioHandler}
                 data-tag={answer.question_id}
               />
             </div>
           ) : (
             <div key={answer.id}>
-              <label>{answer.content}</label>
+              <label className="signupQuestion-answer">{answer.content}</label>
               <input
                 type="radio"
                 name="answers"
                 value={answer.score}
                 id={answer.id}
-                className={answer.mood}
+                className="signupQuestion-radio"
                 onChange={this.formRadioHandler}
                 data-tag={answer.question_id}
               />
@@ -79,26 +81,37 @@ class SignUpQuestion extends React.Component {
     }
 
     return (
-      <div>
+      <div className="signupQuestion-container">
         {question ? (
-          <form>
+          <form className="signupQuestion-form">
             {questionContent}
             {answersList}
             <Link to={`/quiz/${nextId}`}>
-              <button type="submit">Submit</button>
+              <button type="submit" className="signupQuestion-submit">
+                Submit
+              </button>
             </Link>
           </form>
         ) : (
           <div>
             <h1>All Done!</h1>
-            <button type="submit" onClick={this.completeHandler}>
+            <button
+              className="signupQuestion-complete"
+              type="submit"
+              onClick={this.completeHandler}
+            >
               Complete
             </button>
           </div>
         )}
-        {questionId !== 0 ? (
+        {questionId !== 0 && !!question === true ? (
+          <Link className="signupQuestion-back" to={`/quiz/${prevId}`}>
+            <button className="signupQuestion-back">Back</button>
+          </Link>
+        ) : null}
+        {questionId !== 0 && !!question === false ? (
           <Link to={`/quiz/${prevId}`}>
-            <button>Back</button>
+            <button className="completedSignupQuestion-back">Back</button>
           </Link>
         ) : null}
       </div>

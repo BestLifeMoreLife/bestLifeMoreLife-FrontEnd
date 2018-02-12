@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import "../App.css";
 import Navbar from "./Navbar";
 import WelcomePage from "./WelcomePage";
@@ -16,24 +16,20 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
+        <Route path="/login" component={Home} />
+        <Route path="/auth" component={UserAuth} />
+        <Route path="/quiz" component={SignUpQuizContainer} />
+        <Route path="/welcome" component={WelcomePage} />
+        <Route path="/newentry" component={NewEntry} />
+        <Route path="/entryquiz" component={EntryQuizContainer} />
+        <Route path="/intro" component={IntroPage} />
+        <Route path="/journal" component={Journal} />
+        <Route path="/" component={Home} />
 
-        <Switch>
-          <Route path="/auth" component={UserAuth} />
-          <Route path="/home" component={WelcomePage} />
-          <Route path="/quiz" component={SignUpQuizContainer} />
-          <Route path="/newentry" component={NewEntry} />
-          <Route path="/entryquiz" component={EntryQuizContainer} />
-          <Route path="/intro" component={IntroPage} />
-          <Route path="/journal" component={Journal} />
-          <Route path="/" component={Home} />
-        </Switch>
+        <Switch />
       </div>
     );
   }
 }
-
-const mapStateToProps = state => {
-  return { playlist: state.playlist_src };
-};
 
 export default App;

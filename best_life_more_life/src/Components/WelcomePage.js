@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import HomePage from "./HomePage";
+import BackgroundImage from "./BackgroundImage";
 
 class WelcomePage extends React.Component {
   state = {
@@ -14,19 +15,16 @@ class WelcomePage extends React.Component {
     });
   };
   render() {
-    console.log("welcome", this.props.user);
+    console.log(this.props);
     return (
       <div>
-        <div className="welcome-image">
-          <image
-            src="http://wallpapersdsc.net/wp-content/uploads/2015/11/10120.jpg"
-            alt=""
-          />
-        </div>
+        <BackgroundImage location="welcomePage" />
         {this.props.user.score > 0 ? (
           <HomePage />
         ) : (
-          <Link to="/quiz/0">Get Started</Link>
+          <Link to="/quiz/0">
+            <div id="subtext">Click to Get Started</div>
+          </Link>
         )}
       </div>
     );
@@ -34,6 +32,6 @@ class WelcomePage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.currentUser ? state.currentUser : null
+  user: state.currentUser
 });
 export default connect(mapStateToProps)(WelcomePage);

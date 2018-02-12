@@ -71,17 +71,12 @@ class HomeComponents extends React.Component {
         <div class="ui buttons">
           <button
             class="ui icon left labeled button"
-            role="button"
             onClick={this.previousImage}
           >
             <i aria-hidden="true" class="left chevron icon" />Back
           </button>
 
-          <button
-            class="ui icon right labeled button"
-            role="button"
-            onClick={this.nextImage}
-          >
+          <button class="ui icon right labeled button" onClick={this.nextImage}>
             <i aria-hidden="true" class="right chevron icon" />Forward
           </button>
         </div>

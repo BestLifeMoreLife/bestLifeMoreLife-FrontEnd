@@ -61,6 +61,7 @@ class Journal extends React.Component {
                 src="https://image.flaticon.com/icons/png/512/201/201585.png"
                 className="entry-logo"
                 id={entry.id}
+                alt=""
               />
               <div className="content" id={entry.id}>
                 <a className="header" id={entry.id}>

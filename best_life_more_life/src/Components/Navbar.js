@@ -3,8 +3,12 @@ import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 
 const Navbar = props => {
-  const loggedIn = !!props.user.name;
-  const tookQuiz = !!props.user.track;
+  console.log(props.user);
+  const loggedIn = !!props.user.length;
+  let tookQuiz;
+  if (props.user) {
+    tookQuiz = !!props.user.track;
+  }
   let quizItem;
   if (loggedIn && tookQuiz) {
     quizItem = (
@@ -38,7 +42,7 @@ const Navbar = props => {
     homeLink = null;
   }
   return (
-    <nav role="navigation">
+    <nav>
       <div id="menuToggle">
         <input type="checkbox" />
 
@@ -55,14 +59,8 @@ const Navbar = props => {
             <Link to="/journal">
               <li>About</li>
             </Link>
-            <a href="#">
+            <a>
               <li>Info</li>
-            </a>
-            <a href="#">
-              <li>Contact</li>
-            </a>
-            <a href="https://erikterwan.com/" target="_blank">
-              <li>Show me more</li>
             </a>
           </div>
         </ul>

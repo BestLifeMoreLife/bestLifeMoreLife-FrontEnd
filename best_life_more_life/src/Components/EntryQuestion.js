@@ -10,7 +10,6 @@ class EntryQuestion extends React.Component {
   };
 
   fetchPlaylist = () => {
-    console.log("fetch", this.props.user.track.artist_id);
     fetch("http://localhost:3000/api/v1/playlist", {
       method: "POST",
       headers: {
@@ -51,7 +50,7 @@ class EntryQuestion extends React.Component {
   };
 
   render() {
-    let questionId = parseInt(this.props.match.url.split("/entryquiz/")[1]);
+    let questionId = parseInt(this.props.match.url.split("/entryquiz/")[1], 10);
 
     let nextId = +questionId + 1;
     let prevId = questionId - 1;
