@@ -447,11 +447,20 @@ button.entryQuiz-submitButton {
   right: 50%;
 }
 button.entryQuiz-completeButton {
+  color: black;
   position: absolute;
-  top: 70%;
+  left: 42%;
 }
 button.entryQuiz-backButton {
   position: absolute;
   top: 75%;
   right: 43%;
+}
+button.completedEntryQuiz-backButton {
+  position: absolute;
+  left: 52%;
+}
+h1.finished {
+  font-family: cursive;
+  font-size: 2em;
 }

@@ -51,7 +51,8 @@ class EntryQuestion extends React.Component {
   };
 
   render() {
-    let questionId = this.props.match.url.split("/entryquiz/")[1];
+    let questionId = parseInt(this.props.match.url.split("/entryquiz/")[1]);
+
     let nextId = +questionId + 1;
     let prevId = questionId - 1;
     let question = this.props.questions
@@ -107,7 +108,7 @@ class EntryQuestion extends React.Component {
           </form>
         ) : (
           <div>
-            <h1>All Done!</h1>
+            <h1 className="finished">Finished!</h1>
             <button
               className="entryQuiz-completeButton"
               onClick={this.completeHandler}
@@ -116,9 +117,14 @@ class EntryQuestion extends React.Component {
             </button>
           </div>
         )}
-        {questionId !== 0 ? (
+        {questionId !== 0 && !!question === true ? (
           <Link to={`/entryquiz/${prevId}`}>
             <button className="entryQuiz-backButton">Back</button>
+          </Link>
+        ) : null}
+        {questionId !== 0 && !!question === false ? (
+          <Link to={`/entryquiz/${prevId}`}>
+            <button className="completedEntryQuiz-backButton">Back</button>
           </Link>
         ) : null}
       </div>
