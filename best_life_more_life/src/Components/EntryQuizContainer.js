@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 import * as actions from "../actions";
 import EntryQuestion from "./EntryQuestion";
+import BackgroundImage from "./BackgroundImage";
 
 class EntryQuizContainer extends React.Component {
   state = {
@@ -30,14 +31,17 @@ class EntryQuizContainer extends React.Component {
   render() {
     let questions = this.state.test.questions;
     return (
-      <Switch>
-        <Route
-          path="/entryquiz/:id"
-          render={routerProps => {
-            return <EntryQuestion {...routerProps} questions={questions} />;
-          }}
-        />
-      </Switch>
+      <div>
+        <BackgroundImage />
+        <Switch>
+          <Route
+            path="/entryquiz/:id"
+            render={routerProps => {
+              return <EntryQuestion {...routerProps} questions={questions} />;
+            }}
+          />
+        </Switch>
+      </div>
     );
   }
 }

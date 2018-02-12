@@ -64,7 +64,7 @@ class EntryQuestion extends React.Component {
       answersList = answers.map(
         answer =>
           this.state.selected.includes(answer.id) ? (
-            <div key={answer.id}>
+            <div key={answer.id} className="entryQuiz-answer">
               <label>{answer.content}</label>
               <input
                 type="radio"
@@ -77,8 +77,8 @@ class EntryQuestion extends React.Component {
               />
             </div>
           ) : (
-            <div key={answer.id}>
-              <label>{answer.content}</label>
+            <div key={answer.id} className="entryQuiz-answer">
+              <label className="entryQuiz-answer">{answer.content}</label>
               <input
                 type="radio"
                 name="answers"
@@ -94,24 +94,31 @@ class EntryQuestion extends React.Component {
     }
 
     return (
-      <div>
+      <div className="entryQuiz-container">
         {question ? (
-          <form>
-            {questionContent}
-            {answersList}
+          <form className="entryQuiz-form">
+            <p className="entryQuiz-question"> {questionContent}</p>
+            <div className="entryQuiz-answersContainer">{answersList}</div>
             <Link to={`/entryquiz/${nextId}`}>
-              <button type="submit">Submit</button>
+              <button className="entryQuiz-submitButton" type="submit">
+                Submit
+              </button>
             </Link>
           </form>
         ) : (
           <div>
             <h1>All Done!</h1>
-            <button onClick={this.completeHandler}>Complete</button>
+            <button
+              className="entryQuiz-completeButton"
+              onClick={this.completeHandler}
+            >
+              Complete
+            </button>
           </div>
         )}
         {questionId !== 0 ? (
           <Link to={`/entryquiz/${prevId}`}>
-            <button>Back</button>
+            <button className="entryQuiz-backButton">Back</button>
           </Link>
         ) : null}
       </div>
