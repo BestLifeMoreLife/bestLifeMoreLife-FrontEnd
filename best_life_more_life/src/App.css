@@ -199,9 +199,9 @@ div#list-container {
 .news-container {
   background-color: black;
   position: absolute;
-  top: 25%;
+  top: 15%;
   right: 5%;
-  width: 45%;
+  width: 40%;
   height: 45%;
   z-index: 1;
 }
@@ -410,12 +410,19 @@ textarea {
   overflow: auto;
 }
 
-.newEntry-button {
+button.newEntry-button {
   position: absolute;
   top: 60%;
   right: 41%;
   width: 14%;
 }
+button.firstEntry-button {
+  position: absolute;
+  top: 35%;
+  right: 45%;
+  width: 14%;
+}
+
 p.entries {
   position: absolute;
   left: 46%;
@@ -429,9 +436,9 @@ p.entryQuiz-question {
 }
 
 .entryQuiz-container {
-  top: 15%;
+  top: 10%;
   position: absolute;
-  left: 25%;
+  left: 39%;
   width: 70%;
   height: 70%;
 }
@@ -481,13 +488,12 @@ h1.finished {
   font-family: cursive;
   font-size: 2em;
 }
-div.iFrame {
+iframe {
   position: absolute;
   top: 30%;
   left: 5%;
 }
-div.newEntry-container {
-}
+
 #newEntry-text {
   width: 50%;
   position: absolute;
@@ -602,4 +608,15 @@ p.signupQuestion-question {
 }
 button.signupQuestion-complete {
   color: black;
+}
+#intro {
+  position: absolute;
+  font-family: cursive;
+  top: 31%;
+  left: 31%;
+  font-size: 5em;
+  color: #d2d4e3;
+}
+#intro:hover {
+  color: tomato;
 }

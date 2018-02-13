@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 
 const Navbar = props => {
-  console.log(props.user);
-  const loggedIn = !!props.user.length;
+  const loggedIn = !!props.user.id;
+  console.log("navbar", loggedIn, props.user);
   let tookQuiz;
   if (props.user) {
     tookQuiz = !!props.user.track;

@@ -68,16 +68,19 @@ class HomeComponents extends React.Component {
       <div className="news-container">
         {slide}
         {text}
-        <div class="ui buttons">
+        <div className="ui buttons">
           <button
-            class="ui icon left labeled button"
+            className="ui icon left labeled button"
             onClick={this.previousImage}
           >
-            <i aria-hidden="true" class="left chevron icon" />Back
+            <i aria-hidden="true" className="left chevron icon" />Back
           </button>
 
-          <button class="ui icon right labeled button" onClick={this.nextImage}>
-            <i aria-hidden="true" class="right chevron icon" />Forward
+          <button
+            className="ui icon right labeled button"
+            onClick={this.nextImage}
+          >
+            <i aria-hidden="true" className="right chevron icon" />Forward
           </button>
         </div>
       </div>

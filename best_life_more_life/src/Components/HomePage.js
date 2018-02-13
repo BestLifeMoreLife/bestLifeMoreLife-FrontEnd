@@ -7,7 +7,7 @@ import HomeComponents from "./HomeComponents";
 
 class HomePage extends React.Component {
   componentDidMount() {
-    // this.props.fetchJournal(this.props.user.id);
+    this.props.fetchJournal(this.props.user.id);
   }
   render() {
     console.log("home!!!!");

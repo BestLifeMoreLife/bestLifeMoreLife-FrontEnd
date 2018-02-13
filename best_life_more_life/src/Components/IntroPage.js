@@ -9,10 +9,12 @@ const IntroPage = props => {
   return (
     <div>
       <BackgroundImage />
-      {`You're on the ${props.user.track.name} track`}
-      <h2 onClick={() => props.newJournal(props.user.id, props.history)}>
-        Start New Journal
-      </h2>
+      <h1
+        onClick={() => props.newJournal(props.user.id, props.history)}
+        id="intro"
+      >
+        Start {props.user.track.name} track
+      </h1>
     </div>
   );
 };

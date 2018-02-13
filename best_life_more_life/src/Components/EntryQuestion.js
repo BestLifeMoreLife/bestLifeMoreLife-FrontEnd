@@ -10,6 +10,7 @@ class EntryQuestion extends React.Component {
   };
 
   fetchPlaylist = () => {
+    console.log("fetching Playlist", this.props.user.artist.id);
     fetch("http://localhost:3000/api/v1/playlist", {
       method: "POST",
       headers: {
@@ -17,7 +18,7 @@ class EntryQuestion extends React.Component {
         Accept: "application/json"
       },
       body: JSON.stringify({
-        artist: this.props.user.track.artist_id,
+        artist: this.props.user.artist.id,
         score: this.state.score
       })
     })

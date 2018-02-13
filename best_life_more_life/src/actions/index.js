@@ -21,9 +21,9 @@ export function login(spotify_code, history) {
       body: JSON.stringify({ spotify_code })
     })
       .then(res => res.json())
-      .then(user => {
-        localStorage.setItem("jwt", user.token);
-        dispatch({ type: LOGIN, user });
+      .then(data => {
+        localStorage.setItem("jwt", data.token);
+        dispatch({ type: LOGIN, user: data.user });
         history.push("/welcome");
       });
   };
@@ -80,6 +80,7 @@ export function fetchJournal(user_id, history) {
 }
 
 export function fetchEntries(journal_id) {
+  console.log("testing", journal_id);
   return dispatch => {
     let id = parseInt(journal_id, 10);
     return fetch(`http://localhost:3000/api/v1/journals/${id}`)

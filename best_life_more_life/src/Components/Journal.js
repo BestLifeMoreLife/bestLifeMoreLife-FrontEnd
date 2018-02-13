@@ -79,12 +79,19 @@ class Journal extends React.Component {
     return (
       <div>
         <BackgroundImage />
-        <p className="entries">Entries:</p>
+        {entries ? <p className="entries">Entries:</p> : null}
+
         <div className="entries-container">{entries ? entries : null}</div>
         <Link to="/entryquiz/0">
-          <button id="button" className="newEntry-button">
-            New Entry
-          </button>
+          {entries ? (
+            <button id="button" className="newEntry-button">
+              New Entry
+            </button>
+          ) : (
+            <button id="button" className="firstEntry-button">
+              New Entry
+            </button>
+          )}
         </Link>
         {this.state.newEntryClicked ? <EntryQuizContainer /> : null}
         {this.state.entry_content ? (

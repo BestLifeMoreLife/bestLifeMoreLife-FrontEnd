@@ -18,30 +18,38 @@ class BackgroundImage extends React.Component {
       switch (this.props.location.pathname) {
         case "/intro":
           return this.props.user.artist.home_photo;
+        case "/home":
+          return this.props.user.artist.home_photo;
+        case "/welcome":
+          return this.props.user.artist.home_photo;
+        case "/journal":
+          return this.props.user.artist.home_photo;
+        case "/newentry":
+          return this.props.user.artist.home_photo;
         default:
           return "http://i.imgur.com/0JEyLof.jpg";
       }
     };
     return (
-      <div className="background-image">
-        <img src={src()} alt="" />
-        {this.props.location.pathname === "home" ||
-        this.props.location.pathname === "/" ? (
-          <div className="background-text">{"Best Life, More Life"}</div>
+      <div>
+        {this.props.playlist ? (
+          <iframe
+            src={this.props.playlist.link}
+            title={this.props.playlist.link}
+            width="300"
+            height="380"
+            frameBorder="0"
+            allowtransparency="true"
+          />
         ) : null}
 
-        {this.props.playlist ? (
-          <div className="iFrame">
-            <iframe
-              src={this.props.playlist.link}
-              title={this.props.playlist.link}
-              width="300"
-              height="380"
-              frameBorder="0"
-              allowtransparency="true"
-            />
-          </div>
-        ) : null}
+        <div className="background-image">
+          <img src={src()} alt="" />
+          {this.props.location.pathname === "home" ||
+          this.props.location.pathname === "/" ? (
+            <div className="background-text">{"Best Life, More Life"}</div>
+          ) : null}
+        </div>
       </div>
     );
   }
