@@ -419,7 +419,7 @@ button.newEntry-button {
 button.firstEntry-button {
   position: absolute;
   top: 35%;
-  right: 45%;
+  right: 43%;
   width: 14%;
 }
 
@@ -498,7 +498,7 @@ iframe {
   width: 700px;
   position: absolute;
   top: 5%;
-  right: 5%;
+  right: 0.3%;
   overflow: auto;
   background-color: #fff;
   color: #222;
@@ -619,4 +619,8 @@ button.signupQuestion-complete {
 }
 #intro:hover {
   color: tomato;
+}
+iframe {
+  position: absolute;
+  left: 15%;
 }

@@ -6,7 +6,8 @@ import {
   FETCH_ENTRIES,
   ADD_ENTRY,
   EDIT_ENTRY,
-  DELETE_ENTRY
+  DELETE_ENTRY,
+  ENTRY_PIC
 } from "./types";
 
 export function login(spotify_code, history) {
@@ -156,4 +157,23 @@ export function deleteEntry(entry_id, history) {
 
 export function playlistSrc(src) {
   return { type: "SRC", src };
+}
+
+export function fetchPicture(artist_id, mood_score) {
+  return dispatch => {
+    fetch(`http://localhost:3000/api/v1/artists/${artist_id}/picture`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        mood_score
+      })
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        dispatch({ type: ENTRY_PIC, pic: data.photo });
+      });
+  };
 }

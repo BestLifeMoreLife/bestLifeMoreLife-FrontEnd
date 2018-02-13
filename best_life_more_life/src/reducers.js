@@ -7,7 +7,8 @@ import {
   FETCH_ENTRIES,
   ADD_ENTRY,
   EDIT_ENTRY,
-  DELETE_ENTRY
+  DELETE_ENTRY,
+  ENTRY_PIC
 } from "./actions/types";
 
 const userReducer = (state = {}, action) => {
@@ -54,11 +55,21 @@ const playlistReducer = (state = "", action) => {
       return state;
   }
 };
+
+const picReducer = (state = "", action) => {
+  switch (action.type) {
+    case ENTRY_PIC:
+      return action.pic;
+    default:
+      return state;
+  }
+};
 const rootReducer = combineReducers({
   currentUser: userReducer,
   journal: journalReducer,
   entries: entriesReducer,
-  playlist_src: playlistReducer
+  playlist_src: playlistReducer,
+  entry_pic: picReducer
 });
 
 export default rootReducer;

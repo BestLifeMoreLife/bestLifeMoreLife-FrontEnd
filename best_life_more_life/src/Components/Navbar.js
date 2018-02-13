@@ -28,7 +28,7 @@ const Navbar = props => {
   let homeLink;
   if (loggedIn && tookQuiz) {
     homeLink = (
-      <Link to="/home">
+      <Link to="/welcome">
         <li>Home</li>
       </Link>
     );

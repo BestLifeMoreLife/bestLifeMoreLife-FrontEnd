@@ -15,10 +15,9 @@ class WelcomePage extends React.Component {
     });
   };
   render() {
-    console.log(this.props);
     return (
       <div>
-        <BackgroundImage location="welcomePage" />
+        <BackgroundImage />
         {this.props.user.score > 0 ? (
           <HomePage />
         ) : (

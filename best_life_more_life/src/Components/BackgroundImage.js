@@ -25,7 +25,7 @@ class BackgroundImage extends React.Component {
         case "/journal":
           return this.props.user.artist.home_photo;
         case "/newentry":
-          return this.props.user.artist.home_photo;
+          return this.props.entry_pic;
         default:
           return "http://i.imgur.com/0JEyLof.jpg";
       }
@@ -56,6 +56,10 @@ class BackgroundImage extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { user: state.currentUser, playlist: state.playlist_src };
+  return {
+    user: state.currentUser,
+    playlist: state.playlist_src,
+    entry_pic: state.entry_pic
+  };
 };
 export default withRouter(connect(mapStateToProps)(BackgroundImage));

@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class HomeComponents extends React.Component {
   state = {
     images: [
-      "http://static.djbooth.net/pics-features/rect/kanye-writing-book-hip-hop.jpg",
-      "http://s3.amazonaws.com/digitaltrends-uploads-prod/2016/01/kanye-west-singer-rapper-musician.jpg"
+      this.props.user.artist.writing_photo,
+      this.props.user.artist.listen_photo
     ],
     activeImage: 0
   };
@@ -15,7 +16,6 @@ class HomeComponents extends React.Component {
   };
 
   nextImage = () => {
-    console.log("next");
     let newIndex = this.state.activeImage + 1;
 
     if (this.state.activeImage < this.state.images.length - 1) {
@@ -29,8 +29,6 @@ class HomeComponents extends React.Component {
     }
   };
   previousImage = () => {
-    console.log("previous");
-
     if (this.state.activeImage > 0) {
       let newIndex = this.state.activeImage - 1;
       this.setState({
@@ -88,4 +86,10 @@ class HomeComponents extends React.Component {
   }
 }
 
-export default HomeComponents;
+const mapStateToProps = state => {
+  return {
+    user: state.currentUser
+  };
+};
+
+export default connect(mapStateToProps)(HomeComponents);

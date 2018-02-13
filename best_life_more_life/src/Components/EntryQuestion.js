@@ -29,21 +29,6 @@ class EntryQuestion extends React.Component {
       .then(resp => this.props.history.push("/newentry"));
   };
 
-  fetchPicture = (artist_id, mood_score) => {
-    fetch(`http://localhost:3000/api/v1/artists/${artist_id}/picture`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        mood_score
-      })
-    })
-      .then(resp => resp.json())
-      .then(console.log);
-  };
-
   formRadioHandler = e => {
     let id = parseInt(e.target.id, 10);
     let score = parseInt(e.target.value, 10);
@@ -66,7 +51,7 @@ class EntryQuestion extends React.Component {
         score
       },
       () => {
-        this.fetchPicture(this.props.user.artist.id, this.state.score);
+        this.props.fetchPicture(this.props.user.artist.id, this.state.score);
         this.fetchPlaylist();
       }
     );
