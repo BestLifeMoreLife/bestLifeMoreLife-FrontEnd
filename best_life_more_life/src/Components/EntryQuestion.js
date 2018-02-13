@@ -6,11 +6,11 @@ import * as actions from "../actions";
 class EntryQuestion extends React.Component {
   state = {
     selected: [],
+    scores: {},
     score: 0
   };
 
   fetchPlaylist = () => {
-    console.log("fetching Playlist", this.props.user.artist.id);
     fetch("http://localhost:3000/api/v1/playlist", {
       method: "POST",
       headers: {
@@ -29,28 +29,51 @@ class EntryQuestion extends React.Component {
       .then(resp => this.props.history.push("/newentry"));
   };
 
+  fetchPicture = (artist_id, mood_score) => {
+    fetch(`http://localhost:3000/api/v1/artists/${artist_id}/picture`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        mood_score
+      })
+    })
+      .then(resp => resp.json())
+      .then(console.log);
+  };
+
   formRadioHandler = e => {
-    let value = parseInt(e.target.value, 10);
+    let id = parseInt(e.target.id, 10);
+    let score = parseInt(e.target.value, 10);
+    let scores = this.state.scores;
     let selected = this.state.selected;
-    selected.push(value);
+    selected.push(id);
+    scores[id] = score;
     this.setState({
-      selected: selected
+      selected: selected,
+      scores: scores
     });
   };
 
   completeHandler = e => {
     e.preventDefault();
-    let score = this.state.selected.reduce((a, b) => a + b);
+    let score = Object.values(this.state.scores).reduce((a, v) => a + v);
     console.log("handler", score);
     this.setState(
       {
         score
       },
-      () => this.fetchPlaylist()
+      () => {
+        this.fetchPicture(this.props.user.artist.id, this.state.score);
+        this.fetchPlaylist();
+      }
     );
   };
 
   render() {
+    console.log("test", this.state.score);
     let questionId = parseInt(this.props.match.url.split("/entryquiz/")[1], 10);
 
     let nextId = +questionId + 1;
@@ -66,7 +89,7 @@ class EntryQuestion extends React.Component {
         answer =>
           this.state.selected.includes(answer.id) ? (
             <div key={answer.id} className="entryQuiz-answer">
-              <label>{answer.content}</label>
+              <label className="entryQuiz-answer">{answer.content}</label>
               <input
                 type="radio"
                 name="answers"

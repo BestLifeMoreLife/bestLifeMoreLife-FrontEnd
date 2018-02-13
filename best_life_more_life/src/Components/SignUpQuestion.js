@@ -11,7 +11,6 @@ class SignUpQuestion extends React.Component {
     score: 0
   };
   formRadioHandler = e => {
-    console.log("radio", e.target);
     let id = parseInt(e.target.id, 10);
     let score = parseInt(e.target.value, 10);
     let scores = this.state.scores;
@@ -19,7 +18,6 @@ class SignUpQuestion extends React.Component {
     selected.push(id);
     scores[id] = score;
     let total = Math.round(Object.values(scores).reduce((a, v) => a + v) / 2);
-    console.log("handler", total);
     this.setState({
       question_id: 0,
       selected: selected,
