@@ -52,7 +52,7 @@ const Navbar = props => {
         <ul id="menu">
           <div id="list-container">
             <a href="http://localhost:3000/api/v1/login">
-              {loggedIn ? <li>Log Out</li> : <li>Login</li>}
+              {loggedIn ? <li>Log Out</li> : <li>Login/Signup</li>}
             </a>
             {quizItem}
             {homeLink}

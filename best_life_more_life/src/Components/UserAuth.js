@@ -12,7 +12,7 @@ class UserAuth extends React.Component {
   }
   render() {
     console.log("auth");
-    return "in userauth";
+    return <div />;
   }
 }
 

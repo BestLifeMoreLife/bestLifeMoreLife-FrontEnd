@@ -44,7 +44,6 @@ class Journal extends React.Component {
     });
   };
   render() {
-    console.log("test", this.props);
     let entries = this.props.entries.length
       ? this.props.entries.map(entry => {
           let preview = entry.content.substr(0, 15);
@@ -67,7 +66,7 @@ class Journal extends React.Component {
                 <a className="header" id={entry.id}>
                   {date}
                 </a>
-                <div class="description" id={entry.id}>
+                <div className="description" id={entry.id}>
                   {preview}
                 </div>
               </div>
@@ -79,9 +78,9 @@ class Journal extends React.Component {
     return (
       <div>
         <BackgroundImage />
-        {entries ? <p className="entries">Entries:</p> : null}
 
         <div className="entries-container">{entries ? entries : null}</div>
+        {entries ? <p className="entries">Entries:</p> : null}
         <Link to="/entryquiz/0">
           {entries ? (
             <button id="button" className="newEntry-button">

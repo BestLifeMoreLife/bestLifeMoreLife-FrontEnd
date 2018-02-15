@@ -10,6 +10,8 @@ import UserAuth from "./UserAuth";
 import IntroPage from "./IntroPage";
 import Journal from "./Journal";
 import NewEntry from "./NewEntry";
+import HomePage from "./HomePage";
+import BlogContainer from "./BlogContainer";
 
 class App extends Component {
   render() {
@@ -19,6 +21,8 @@ class App extends Component {
         <Route path="/login" component={Home} />
         <Route path="/auth" component={UserAuth} />
         <Route path="/quiz" component={SignUpQuizContainer} />
+        <Route path="/blogs" component={BlogContainer} />
+        <Route path="/homepage" component={HomePage} />
         <Route path="/welcome" component={WelcomePage} />
         <Route path="/newentry" component={NewEntry} />
         <Route path="/entryquiz" component={EntryQuizContainer} />

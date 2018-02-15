@@ -51,7 +51,9 @@ class HomeComponents extends React.Component {
           <div className="photo-text">Open Journal</div>
         </Link>
       ) : (
-        <div className="photo-text">Listen</div>
+        <Link to="/blogs">
+          <div className="photo-text">Blog</div>
+        </Link>
       );
     let slide =
       this.state.activeImage === 0 ? (

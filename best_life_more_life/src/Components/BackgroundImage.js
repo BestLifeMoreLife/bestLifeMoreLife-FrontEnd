@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 class BackgroundImage extends React.Component {
   render() {
-    console.log("background", this.props);
+    console.log("BACKGROUND", this.props.user);
     const loggedIn = !!this.props.user;
     let tookQuiz;
     if (this.props.user) {
@@ -18,10 +18,18 @@ class BackgroundImage extends React.Component {
       switch (this.props.location.pathname) {
         case "/intro":
           return this.props.user.artist.home_photo;
+        case "/blogs":
+          return this.props.user.artist.home_photo;
         case "/home":
           return this.props.user.artist.home_photo;
+        case "/homepage":
+          return this.props.user
+            ? this.props.user.artist.home_photo
+            : "http://i.imgur.com/0JEyLof.jpg";
         case "/welcome":
-          return this.props.user.artist.home_photo;
+          return this.props.user.track
+            ? this.props.user.artist.home_photo
+            : "http://i.imgur.com/0JEyLof.jpg";
         case "/journal":
           return this.props.user.artist.home_photo;
         case "/newentry":
@@ -37,18 +45,23 @@ class BackgroundImage extends React.Component {
             src={this.props.playlist.link}
             title={this.props.playlist.link}
             width="300"
-            height="380"
+            height="700"
             frameBorder="0"
             allowtransparency="true"
           />
         ) : null}
-
         <div className="background-image">
           <img src={src()} alt="" />
           {this.props.location.pathname === "home" ||
           this.props.location.pathname === "/" ? (
             <div className="background-text">{"Best Life, More Life"}</div>
           ) : null}
+          {this.props.location.pathname.includes("/entryquiz/") ? (
+            <div className="entryQuiz-backgroundText">
+              {"Best Life, More Life"}
+            </div>
+          ) : null}
+          <div className="overlay" />
         </div>
       </div>
     );

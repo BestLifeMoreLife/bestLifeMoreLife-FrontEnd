@@ -5,8 +5,7 @@ import { withRouter } from "react-router-dom";
 
 class Submission extends React.Component {
   state = {
-    content:
-      "Quote Goes Here, Let's try something much longer than it was before while it was short",
+    content: "Quote Goes Here",
     public: false,
     journal_id: this.props.journal_id
   };

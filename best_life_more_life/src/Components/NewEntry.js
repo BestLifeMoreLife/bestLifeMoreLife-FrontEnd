@@ -5,7 +5,6 @@ import BackgroundImage from "./BackgroundImage";
 
 class NewEntry extends React.Component {
   render() {
-    console.log("test", this.props.src.link);
     return (
       <div>
         <BackgroundImage />

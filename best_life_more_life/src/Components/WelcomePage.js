@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import HomePage from "./HomePage";
 import BackgroundImage from "./BackgroundImage";
 
@@ -8,6 +8,10 @@ class WelcomePage extends React.Component {
   state = {
     clickedQuiz: false
   };
+
+  componentDidMount() {
+    this.props.user.score > 0 ? this.props.history.push("/homepage") : null;
+  }
 
   quizClickHandler = () => {
     this.setState({
@@ -18,13 +22,10 @@ class WelcomePage extends React.Component {
     return (
       <div>
         <BackgroundImage />
-        {this.props.user.score > 0 ? (
-          <HomePage />
-        ) : (
-          <Link to="/quiz/0">
-            <div id="subtext">Click to Get Started</div>
-          </Link>
-        )}
+
+        <Link to="/quiz/0">
+          <div id="subtext">Click to Get Started</div>
+        </Link>
       </div>
     );
   }
@@ -33,4 +34,4 @@ class WelcomePage extends React.Component {
 const mapStateToProps = state => ({
   user: state.currentUser
 });
-export default connect(mapStateToProps)(WelcomePage);
+export default withRouter(connect(mapStateToProps)(WelcomePage));
