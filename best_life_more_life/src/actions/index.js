@@ -173,7 +173,7 @@ export function fetchPicture(artist_id, mood_score) {
     })
       .then(resp => resp.json())
       .then(data => {
-        dispatch({ type: ENTRY_PIC, pic: data.photo });
+        dispatch({ type: ENTRY_PIC, pic: data.photo, quote: data.quote });
       });
   };
 }

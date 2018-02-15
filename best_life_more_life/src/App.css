@@ -491,7 +491,8 @@ button.entryQuiz-submitButton {
 button.entryQuiz-completeButton {
   color: black;
   position: absolute;
-  left: 42%;
+  top: 65%;
+  left: 57%;
 }
 button.entryQuiz-backButton {
   position: absolute;
@@ -500,9 +501,13 @@ button.entryQuiz-backButton {
 }
 button.completedEntryQuiz-backButton {
   position: absolute;
-  left: 52%;
+  top: 65%;
+  left: 67%;
 }
 h1.finished {
+  position: absolute;
+  top: 55%;
+  left: 60%;
   font-family: cursive;
   font-size: 2em;
 }
@@ -513,7 +518,7 @@ iframe {
 }
 
 #newEntry-text {
-  width: 635px;
+  width: 650px;
   position: absolute;
   top: 5%;
   right: 2%;

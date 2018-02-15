@@ -5,7 +5,9 @@ import { withRouter } from "react-router-dom";
 
 class Submission extends React.Component {
   state = {
-    content: "Quote Goes Here",
+    content:
+      `"${this.props.artist_quotes[0].content}"` +
+      `${this.props.artist_quotes[0].song}`,
     public: false,
     journal_id: this.props.journal_id
   };
@@ -32,7 +34,10 @@ class Submission extends React.Component {
     });
   };
 
+  matchQuote;
+
   render() {
+    console.log(this.props);
     return (
       <div className="newEntry-masterDiv">
         <div id="wrapper">
@@ -70,7 +75,8 @@ class Submission extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    journal_id: state.journal.id
+    journal_id: state.journal.id,
+    artist_quotes: state.quote
   };
 };
 export default withRouter(connect(mapStateToProps, actions)(Submission));

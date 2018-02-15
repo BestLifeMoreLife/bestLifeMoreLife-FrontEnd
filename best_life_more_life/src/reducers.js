@@ -64,12 +64,22 @@ const picReducer = (state = "", action) => {
       return state;
   }
 };
+const quoteReducer = (state = "", action) => {
+  switch (action.type) {
+    case ENTRY_PIC:
+      return action.quote;
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   currentUser: userReducer,
   journal: journalReducer,
   entries: entriesReducer,
   playlist_src: playlistReducer,
-  entry_pic: picReducer
+  entry_pic: picReducer,
+  quote: quoteReducer
 });
 
 export default rootReducer;
