@@ -2,26 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -215,6 +195,7 @@ img {
 }
 
 .background-text {
+  margin: 0 auto;
   opacity: 0.7;
   position: absolute;
   font-size: 5em;
@@ -471,6 +452,7 @@ label.entryQuiz-answer {
   padding-bottom: 9%;
   padding-right: 3%;
   font-family: fantasy;
+  font-size: 80%;
 }
 div.entryQuiz-answersContainer {
   position: absolute;
@@ -485,7 +467,7 @@ div.entryQuiz-answer {
 }
 button.entryQuiz-submitButton {
   position: absolute;
-  top: 83%;
+  top: 88%;
   right: 50%;
 }
 button.entryQuiz-completeButton {

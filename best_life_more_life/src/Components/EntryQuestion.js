@@ -51,6 +51,7 @@ class EntryQuestion extends React.Component {
         score
       },
       () => {
+        console.log("TESTINGGGGG", this.props.user)
         this.props.fetchPicture(this.props.user.artist.id, this.state.score);
         this.fetchPlaylist();
       }
@@ -86,19 +87,19 @@ class EntryQuestion extends React.Component {
               />
             </div>
           ) : (
-            <div key={answer.id} className="entryQuiz-answer">
-              <label className="entryQuiz-answer">{answer.content}</label>
-              <input
-                type="radio"
-                name="answers"
-                value={answer.score}
-                id={answer.id}
-                className={answer.mood}
-                onChange={this.formRadioHandler}
-                data-tag={answer.question_id}
-              />
-            </div>
-          )
+              <div key={answer.id} className="entryQuiz-answer">
+                <label className="entryQuiz-answer">{answer.content}</label>
+                <input
+                  type="radio"
+                  name="answers"
+                  value={answer.score}
+                  id={answer.id}
+                  className={answer.mood}
+                  onChange={this.formRadioHandler}
+                  data-tag={answer.question_id}
+                />
+              </div>
+            )
       );
     }
 
@@ -106,7 +107,7 @@ class EntryQuestion extends React.Component {
       <div className="entryQuiz-container">
         {question ? (
           <form className="entryQuiz-form">
-            <p className="entryQuiz-question"> {questionContent}</p>
+            <p className="entryQuiz-question"> How Do You Feel?</p>
             <div className="entryQuiz-answersContainer">{answersList}</div>
             <Link to={`/entryquiz/${nextId}`}>
               <button className="entryQuiz-submitButton" type="submit">
@@ -115,16 +116,16 @@ class EntryQuestion extends React.Component {
             </Link>
           </form>
         ) : (
-          <div>
-            <h1 className="finished">Finished!</h1>
-            <button
-              className="entryQuiz-completeButton"
-              onClick={this.completeHandler}
-            >
-              Complete
+            <div>
+              <h1 className="finished">Finished!</h1>
+              <button
+                className="entryQuiz-completeButton"
+                onClick={this.completeHandler}
+              >
+                Complete
             </button>
-          </div>
-        )}
+            </div>
+          )}
         {questionId !== 0 && !!question === true ? (
           <Link to={`/entryquiz/${prevId}`}>
             <button className="entryQuiz-backButton">Back</button>
